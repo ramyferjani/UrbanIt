@@ -70,9 +70,14 @@ export function login(email, password) {
         // this.$store.commit('loginSuccess', { token: res.data.token, user: res.data.user });
       })
       .catch((err) => {
+        // if (!err.response) {
+        //   dispatch(loginFailure( err.response.data.data ));
+        // }
         /* eslint-disable no-console */
-        console.log(err);
-        dispatch(loginFailure( err.response.data.data ));
+        // console.log(err.response);
+        console.log('before dispatch');
+        dispatch(loginFailure( err.response ? err.response.data.data : null));
+        console.log('after dispatch');
         // this.$store.commit('loginFailure');
         // this.errors.push(err);
       });
@@ -100,7 +105,7 @@ export function register(username, email, firstName, lastName, password) {
       .catch((err) => {
         /* eslint-disable no-console */
         console.log(err);
-        dispatch(registerFailure( err.response.data.data ));
+        dispatch(loginFailure( err.response ? err.response.data.data : null));
         // this.$store.commit('registerFailure');
         // this.errors.push(err);
       });
