@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-import * as Actions from '../../actions/index.actions';
+import { COUNTER_DECREMENT, COUNTER_INCREMENT} from '../../lib/constants';
 
 
 class Counter extends React.Component {
   increment = () => {
-    this.props.dispatch({ type: Actions.COUNTER_INCREMENT });
+    this.props.dispatch({ type: COUNTER_INCREMENT });
   }
 
   decrement = () => {
-    this.props.dispatch({ type: Actions.COUNTER_DECREMENT });
+    this.props.dispatch({ type: COUNTER_DECREMENT });
   }
 
   render() {

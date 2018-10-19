@@ -1,0 +1,38 @@
+export default locales = {
+  en: {
+    username: 'Username',
+    password: 'Password',
+    confirmPassword: 'Confirm password',
+    signin: 'Sign in',
+    logout: 'Log out',
+    noAccount: 'New to UrbanIt ?',
+    forgotPassword: 'Forgot password ?',
+    email: 'Email address',
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    signup: 'Sign up',
+    sport: 'Sport',
+    height: 'Height',
+    weight: 'Weight',
+    number: 'Player number',
+    position: 'Position'
+  },
+  fr: {
+    username: "Nom d'utilisateur",
+    password: 'Mot de passe',
+    confirmPassword: 'Confirmer le mot de passe',
+    signin: 'Se connecter',
+    logout: 'Se déconnecter',
+    noAccount: 'Nouveau sur UrbanIt ?',
+    forgotPassword: 'Mot de passe oublié ?',
+    email: 'Adresse email',
+    firstName: 'Prénom',
+    lastName: 'Nom',
+    signup: "S'enregister",
+    sport: 'Sport',
+    height: 'Taille',
+    weight: 'Poids',
+    number: 'Numéro de joueur',
+    position: 'Poste'
+  },
+};

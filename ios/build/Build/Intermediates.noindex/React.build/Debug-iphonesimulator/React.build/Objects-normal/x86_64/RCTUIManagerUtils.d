@@ -1,0 +1,5 @@
+dependencies: \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/node_modules/react-native/React/Modules/RCTUIManagerUtils.m \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/node_modules/react-native/React/Modules/RCTUIManagerUtils.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/node_modules/react-native/React/Base/RCTDefines.h

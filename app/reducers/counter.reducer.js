@@ -1,10 +1,10 @@
-import * as Actions from '../actions/index.actions';
+import { COUNTER_DECREMENT, COUNTER_INCREMENT} from '../lib/constants';
 
 const counter = (state = 0, action) => {
   switch(action.type) {
-    case Actions.COUNTER_INCREMENT:
+    case COUNTER_INCREMENT:
       return state + 1;
-    case Actions.COUNTER_DECREMENT:
+    case COUNTER_DECREMENT:
       return state - 1;
     default:
       return state;

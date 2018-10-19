@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>9</integer>
+	<key>logs</key>
+	<dict>
+		<key>ECAB49BD-93DB-499F-8597-A4B590620219</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>ECAB49BD-93DB-499F-8597-A4B590620219.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>UrbanIt project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>UrbanIt</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>561587178.46010303</real>
+			<key>timeStoppedRecording</key>
+			<real>561587184.06482899</real>
+			<key>title</key>
+			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>ECAB49BD-93DB-499F-8597-A4B590620219</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

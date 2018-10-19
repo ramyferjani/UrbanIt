@@ -1,8 +1,8 @@
-import * as Actions from '../actions/index.actions';
+import { TEST_ACTION } from '../lib/constants';
 
 const test = (state = {}, action) => {
   switch (action.type) {
-  case Actions.TEST_ACTION: {
+  case TEST_ACTION: {
     return action.payload;
   }
   default:

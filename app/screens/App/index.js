@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {connect} from 'react-redux';
-import Home from '../Home';
+import Main from '../Main';
 import Counter from '../Counter'
 
 class App extends React.Component {
