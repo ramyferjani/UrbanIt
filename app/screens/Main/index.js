@@ -9,8 +9,8 @@ import Foundation from 'react-native-vector-icons/Foundation';
 import { material } from 'react-native-typography';
 
 import colors from '../../assets/colors';
-import Navigation from '../../assets/locales/Navigation';
 import PlayerIcon from '../../components/PlayerIcon';
+import i18n from '../../lib/i18n';
 
 var {height, width} = Dimensions.get('window');
 
@@ -30,7 +30,7 @@ const team = [
 class Main extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     // header: null,
-    title: Navigation.en.home,
+    title: i18n.t('home'),
     gesturesEnabled: true,
     headerTransparent: false,
     headerStyle: {
@@ -80,7 +80,7 @@ class Main extends React.Component {
       barStyle="dark-content"
       />
       <View style={{ paddingLeft : 30, paddingTop: 20, backgroundColor: colors.darkViolet1, height: 70 + (width - 80) / 5 + 20 }}>
-        <Text style={material.headlineWhite}>{Navigation.en.myTeam}</Text>
+        <Text style={material.headlineWhite}>{i18n.t('myTeam')}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: width - 60, paddingTop: 20}}>
           {this.generatePlayers(team)}
         </View>

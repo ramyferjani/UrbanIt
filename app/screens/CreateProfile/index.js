@@ -1,13 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Picker, TouchableOpacity } from 'react-native';
-import { Input, Button } from 'react-native-elements';
+import { StyleSheet, View, TouchableHighlight, TouchableOpacity } from 'react-native';
+// import { Input, Button } from 'react-native-elements';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left } from 'native-base';
 
 import colors from '../../assets/colors';
 import Navigation from '../../assets/locales/Navigation';
 import UserInformations from '../../assets/locales/UserInformations';
 
 export default class CreateProfile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedSport: null,
+    };
+  }
+
   static navigationOptions = ({ navigation }) => ({
       // header: null,
       title: Navigation.en.createProfile,
@@ -33,98 +41,53 @@ export default class CreateProfile extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.formContainer}>
-          <Input
-            placeholder={UserInformations.en.sport}
-            inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
-            containerStyle={styles.inputContainer}
-            inputStyle={styles.input}
-            placeholderTextColor={colors.darkGray2}
-            underlineColorAndroid={colors.lightGray3}
-            leftIcon={
-              <FontAwesome
-                name='user-o'
-                size={24}
-                color={colors.darkGray1}
-              />
-            }
-          />
-          <Input
-            placeholder={UserInformations.en.height}
-            inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
-            containerStyle={styles.inputContainer}
-            inputStyle={styles.input}
-            placeholderTextColor={colors.darkGray2}
-            underlineColorAndroid={colors.lightGray3}
-            leftIcon={
-              <FontAwesome
-                name='user-o'
-                size={24}
-                color={colors.darkGray1}
-              />
-            }
-          />
-          <Input
-            placeholder={UserInformations.en.weight}
-            inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
-            containerStyle={styles.inputContainer}
-            inputStyle={styles.input}
-            placeholderTextColor={colors.darkGray2}
-            underlineColorAndroid={colors.lightGray3}
-            leftIcon={
-              <FontAwesome
-                name='user-o'
-                size={24}
-                color={colors.darkGray1}
-              />
-            }
-          />
-          <Input
-            placeholder={UserInformations.en.number}
-            inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
-            containerStyle={styles.inputContainer}
-            inputStyle={styles.input}
-            placeholderTextColor={colors.darkGray2}
-            underlineColorAndroid={colors.lightGray3}
-            leftIcon={
-              <FontAwesome
-                name='user-o'
-                size={24}
-                color={colors.darkGray1}
-              />
-            }
-          />
-          <Input
-            placeholder={UserInformations.en.position}
-            inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
-            containerStyle={styles.inputContainer}
-            inputStyle={styles.input}
-            placeholderTextColor={colors.darkGray2}
-            underlineColorAndroid={colors.lightGray3}
-            leftIcon={
-              <FontAwesome
-                name='user-o'
-                size={24}
-                color={colors.darkGray1}
-              />
-            }
-          />
-          {/* <Button
-            title={UserInformations.en.signin}
-            titleStyle={{ color: colors.lightBlue }}
-            buttonStyle={styles.button}
-            containerStyle={styles.buttonContainer}
-            // onPress={() => navigate('Main')}
-          /> */}
-          {/* <TouchableOpacity style={styles.signUpContainer} onPress={() => navigate('Signup')}>
-            <Text style={styles.signUp}>{UserInformations.en.noAccount}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.signUpContainer}>
-            <Text style={styles.signUp}>{UserInformations.en.forgotPassword}</Text>
-          </TouchableOpacity> */}
-          </View>
-      </View>
+      <Container>
+        <Content padder>
+          <Form>
+            <Item>
+              <Left>
+                <Text>Sport</Text>
+              </Left>
+              <Right>
+                <Picker
+                  iosHeader='Sport'
+                  mode="dropdown"
+                  iosIcon={<Icon name="ios-arrow-down-outline" />}
+                  style={{ width: undefined }}
+                  placeholder="Select your Sport"
+                  placeholderStyle={{ color: "#bfc6ea" }}
+                  placeholderIconColor="#007aff"
+                  selectedValue={this.state.selectedSport}
+                  onValueChange={(selectedSport) => { this.setState({ selectedSport }) }}
+                >
+                  <Picker.Item label="Football" value="football" />
+                  <Picker.Item label="Basketball" value="basketball" />
+                </Picker>
+              </Right>
+            </Item>
+            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+            </Item>
+            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+            </Item>
+            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+            </Item>
+            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+            </Item>
+            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+            </Item>
+          </Form>
+        </Content>
+      </Container>
     );
   }
 }
@@ -192,3 +155,100 @@ const styles = StyleSheet.create({
     color: '#fff',
   }
 });
+
+// render() {
+//   return (
+//     <View style={styles.container}>
+//       <View style={styles.formContainer}>
+//         <Input
+//           placeholder={UserInformations.en.sport}
+//           inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
+//           containerStyle={styles.inputContainer}
+//           inputStyle={styles.input}
+//           placeholderTextColor={colors.darkGray2}
+//           underlineColorAndroid={colors.lightGray3}
+//           leftIcon={
+//             <FontAwesome
+//               name='user-o'
+//               size={24}
+//               color={colors.darkGray1}
+//             />
+//           }
+//         />
+//         <Input
+//           placeholder={UserInformations.en.height}
+//           inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
+//           containerStyle={styles.inputContainer}
+//           inputStyle={styles.input}
+//           placeholderTextColor={colors.darkGray2}
+//           underlineColorAndroid={colors.lightGray3}
+//           leftIcon={
+//             <FontAwesome
+//               name='user-o'
+//               size={24}
+//               color={colors.darkGray1}
+//             />
+//           }
+//         />
+//         <Input
+//           placeholder={UserInformations.en.weight}
+//           inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
+//           containerStyle={styles.inputContainer}
+//           inputStyle={styles.input}
+//           placeholderTextColor={colors.darkGray2}
+//           underlineColorAndroid={colors.lightGray3}
+//           leftIcon={
+//             <FontAwesome
+//               name='user-o'
+//               size={24}
+//               color={colors.darkGray1}
+//             />
+//           }
+//         />
+//         <Input
+//           placeholder={UserInformations.en.number}
+//           inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
+//           containerStyle={styles.inputContainer}
+//           inputStyle={styles.input}
+//           placeholderTextColor={colors.darkGray2}
+//           underlineColorAndroid={colors.lightGray3}
+//           leftIcon={
+//             <FontAwesome
+//               name='user-o'
+//               size={24}
+//               color={colors.darkGray1}
+//             />
+//           }
+//         />
+//         <Input
+//           placeholder={UserInformations.en.position}
+//           inputContainerStyle={{borderColor: colors.darkViolet1, borderBottomWidth: 0}}
+//           containerStyle={styles.inputContainer}
+//           inputStyle={styles.input}
+//           placeholderTextColor={colors.darkGray2}
+//           underlineColorAndroid={colors.lightGray3}
+//           leftIcon={
+//             <FontAwesome
+//               name='user-o'
+//               size={24}
+//               color={colors.darkGray1}
+//             />
+//           }
+//         />
+//         {/* <Button
+//           title={UserInformations.en.signin}
+//           titleStyle={{ color: colors.lightBlue }}
+//           buttonStyle={styles.button}
+//           containerStyle={styles.buttonContainer}
+//           // onPress={() => navigate('Main')}
+//         /> */}
+//         {/* <TouchableOpacity style={styles.signUpContainer} onPress={() => navigate('Signup')}>
+//           <Text style={styles.signUp}>{UserInformations.en.noAccount}</Text>
+//         </TouchableOpacity>
+//         <TouchableOpacity style={styles.signUpContainer}>
+//           <Text style={styles.signUp}>{UserInformations.en.forgotPassword}</Text>
+//         </TouchableOpacity> */}
+//         </View>
+//     </View>
+//   );
+// }

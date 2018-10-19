@@ -10,9 +10,20 @@ import colors from '../../assets/colors';
 import SportProfile from '../../components/SportProfile';
 import SportLocales from '../../assets/locales/Sport';
 import Navigation from '../../assets/locales/Navigation';
+import { getRank } from '../../lib/rank';
 
 
 var { height, width } = Dimensions.get('window');
+
+const profiles = [{
+  id: 1,
+  size: "186",
+  weight: "75",
+  numero: 9,
+  position: "Attaquant",
+  ranking: "1000",
+  sport: 'football',
+}]
 
 class Profile extends React.Component {
   football = () => {
@@ -81,8 +92,13 @@ class Profile extends React.Component {
           <View style={styles.chooseTextContainer}>
             <Text style={styles.chooseText}>{SportLocales.en.sportSelection}</Text>
           </View>
-          <SportProfile isEnable={this.props.sport.name == 'football'} sportTitle={'Football'} sportRank={10} onPress={this.football.bind(this)}></SportProfile>
-          <SportProfile isEnable={this.props.sport.name == 'basketball'} sportTitle={'Basket'} sportRank={7} onPress={this.basketball.bind(this)}></SportProfile>
+
+          {/* {this.props.auth.user.profiles.map(profile => ( */}
+          {profiles.map(profile => (
+            <SportProfile isEnable={this.props.sport.name == profile.sport} sportTitle={'Football'} sportRank={getRank(profile.ranking)} onPress={this.football.bind(this)}></SportProfile>
+          ))};
+          {/* <SportProfile isEnable={this.props.sport.name == 'football'} sportTitle={'Football'} sportRank={10} onPress={this.football.bind(this)}></SportProfile>
+          <SportProfile isEnable={this.props.sport.name == 'basketball'} sportTitle={'Basket'} sportRank={7} onPress={this.basketball.bind(this)}></SportProfile> */}
           <TouchableHighlight style={{height: 50, margin: 15, backgroundColor: colors.darkViolet1, borderRadius: 5, alignItems: 'center'}} underlayColor={colors.darkViolet2} onPress={() => this.props.navigation.navigate('CreateProfile')}>
           <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 10, alignItems: 'center'}}>
             <FontAwesome name='plus' size={20} color='white'/>
@@ -101,7 +117,8 @@ class Profile extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    sport: state.sport
+    sport: state.sport,
+    auth: state.auth,
   };
 }
 

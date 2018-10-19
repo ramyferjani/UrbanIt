@@ -10,6 +10,7 @@ import { material } from 'react-native-typography';
 import { login } from '../../actions/user_auth';
 import colors from './../../assets/colors';
 import UserInformations from '../../assets/locales/UserInformations';
+import i18n from '../../lib/i18n';
 
 class Login extends React.Component {
   constructor(props) {
@@ -54,7 +55,7 @@ class Login extends React.Component {
               <Form>
                 <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='ios-unlock' style={{color: '#FFF'}} type={'Ionicons'}/>
