@@ -21,7 +21,7 @@ const profiles = [{
   numero: 9,
   position: "Attaquant",
   ranking: "1000",
-  sport: 'football',
+  sport: 'basketball',
 }]
 
 class Profile extends React.Component {
@@ -94,7 +94,7 @@ class Profile extends React.Component {
 
           {/* {this.props.auth.user.profiles.map(profile => ( */}
           {profiles.map(profile => (
-            <SportProfile key={profile.id} isEnable={this.props.sport.name == profile.sport} sportTitle={'Football'} sportRank={getRank(profile.ranking)} onPress={this.football.bind(this)}></SportProfile>
+            <SportProfile key={profile.id} isEnable={this.props.sport.name == profile.sport} sportTitle={profile.sport} sportRank={getRank(profile.ranking)} onPress={this.basketball.bind(this)}></SportProfile>
           ))};
           {/* <SportProfile isEnable={this.props.sport.name == 'football'} sportTitle={'Football'} sportRank={10} onPress={this.football.bind(this)}></SportProfile>
           <SportProfile isEnable={this.props.sport.name == 'basketball'} sportTitle={'Basket'} sportRank={7} onPress={this.basketball.bind(this)}></SportProfile> */}

@@ -12,6 +12,11 @@ class SportProfile extends React.Component {
   constructor(props) {
     super(props)
   }
+
+  Capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   render() {
     return (
           <View style={styles.profileContainer}>
@@ -27,7 +32,7 @@ class SportProfile extends React.Component {
             </View>
             <View>
               <View style={styles.sportTitleContainer}>
-                <Text style={[styles.sportTitle, this.props.isEnable ? styles.sportTitleEnabled : styles.sportTitleDisabled]}>{this.props.sportTitle}</Text>
+                <Text style={[styles.sportTitle, this.props.isEnable ? styles.sportTitleEnabled : styles.sportTitleDisabled]}>{this.Capitalize(this.props.sportTitle)}</Text>
               </View>
               <View style={styles.sportRankContainer}>
                 <Text style={[styles.sportRank, this.props.isEnable ? styles.sportRankEnabled : styles.sportRankDisabled]}>{i18n.t('rank')} {this.props.sportRank}</Text>

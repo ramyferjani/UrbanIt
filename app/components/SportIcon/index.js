@@ -22,7 +22,7 @@ class SportIcon extends React.Component {
               color={this.props.color}
           />
           );
-      case 'basket':
+      case 'basketball':
         return (
           <FontAwesome5
               name='basketball-ball'
