@@ -5,14 +5,13 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Container, Header, Content, List, Button, ListItem, Text, Icon, Left, Body, Right, Switch, } from 'native-base';
 
 import colors from '../../assets/colors';
-import UserInformations from '../../assets/locales/UserInformations';
-import Navigation from '../../assets/locales/Navigation';
+import i18n from '../../lib/i18n';
 import { logout } from '../../actions/user_auth';
 
 class Settings extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     // header: null,
-    title: Navigation.en.settings,
+    title: i18n.t('settings'),
     gesturesEnabled: true,
     headerTransparent: false,
     headerStyle: {
@@ -48,7 +47,7 @@ class Settings extends React.Component {
                 </Button>
               </Left>
               <Body>
-                <Text>{UserInformations.en.logout}</Text>
+                <Text>{i18n.t('logout')}</Text>
               </Body>
               <Right>
                 <Icon active name="arrow-forward" />

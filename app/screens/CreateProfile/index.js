@@ -5,9 +5,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left } from 'native-base';
 
 import colors from '../../assets/colors';
-import Navigation from '../../assets/locales/Navigation';
-import UserInformations from '../../assets/locales/UserInformations';
-
+import i18n from '../../lib/i18n';
 export default class CreateProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +16,7 @@ export default class CreateProfile extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
       // header: null,
-      title: Navigation.en.createProfile,
+      title: i18n.t('createProfile'),
       gesturesEnabled: true,
       headerTransparent: false,
       headerStyle: {
@@ -67,23 +65,23 @@ export default class CreateProfile extends React.Component {
             </Item>
             <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
             </Item>
             <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
             </Item>
             <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
             </Item>
             <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
             </Item>
             <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
             </Item>
           </Form>
         </Content>

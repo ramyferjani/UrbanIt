@@ -4,14 +4,14 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Avatar, Divider, Button } from 'react-native-elements';
 
 import colors from '../../assets/colors';
-import Navigation from '../../assets/locales/Navigation';
+import i18n from '../../lib/i18n';
 
 var {height, width} = Dimensions.get('window');
 
 export default class EditProfile extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     // header: null,
-    title: Navigation.en.editProfile,
+    title: i18n.t('editProfile'),
     gesturesEnabled: true,
     headerStyle: {
       backgroundColor: colors.darkViolet1,

@@ -4,9 +4,6 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { Avatar, Divider, Button } from 'react-native-elements';
 
 import colors from '../../assets/colors';
-import SportIcon from '../SportIcon';
-import SportLocales from '../../assets/locales/Sport';
-
 var {height, width} = Dimensions.get('window');
 
 class PlayerIcon extends React.Component {

@@ -5,8 +5,7 @@ import { Avatar, Divider, Button } from 'react-native-elements';
 
 import colors from '../../assets/colors';
 import SportIcon from '../SportIcon';
-import SportLocales from '../../assets/locales/Sport';
-
+import i18n from '../../lib/i18n';
 var {height, width} = Dimensions.get('window');
 
 class SportProfile extends React.Component {
@@ -31,7 +30,7 @@ class SportProfile extends React.Component {
                 <Text style={[styles.sportTitle, this.props.isEnable ? styles.sportTitleEnabled : styles.sportTitleDisabled]}>{this.props.sportTitle}</Text>
               </View>
               <View style={styles.sportRankContainer}>
-                <Text style={[styles.sportRank, this.props.isEnable ? styles.sportRankEnabled : styles.sportRankDisabled]}>{SportLocales.en.rank} {this.props.sportRank}</Text>
+                <Text style={[styles.sportRank, this.props.isEnable ? styles.sportRankEnabled : styles.sportRankDisabled]}>{i18n.t('rank')} {this.props.sportRank}</Text>
               </View>
             </View>
             </View>

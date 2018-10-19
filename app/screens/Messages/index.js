@@ -3,12 +3,12 @@ import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 import colors from '../../assets/colors';
-import Navigation from '../../assets/locales/Navigation';
+import i18n from '../../lib/i18n';
 
 export default class Messages extends React.Component {
   static navigationOptions = ({ navigation }) => ({
       // header: null,
-      title: Navigation.en.messages,
+      title: i18n.t('messages'),
       gesturesEnabled: true,
       headerTransparent: true,
       headerTitleStyle: {color: 'white'},

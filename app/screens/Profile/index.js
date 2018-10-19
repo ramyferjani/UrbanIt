@@ -8,8 +8,7 @@ import { material } from 'react-native-typography';
 import { FOOTBALL, BASKETBALL } from '../../lib/constants';
 import colors from '../../assets/colors';
 import SportProfile from '../../components/SportProfile';
-import SportLocales from '../../assets/locales/Sport';
-import Navigation from '../../assets/locales/Navigation';
+import i18n from '../../lib/i18n';
 import { getRank } from '../../lib/rank';
 
 
@@ -36,7 +35,7 @@ class Profile extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
     // header: null,
-    title: Navigation.en.profile,
+    title: i18n.t('profile'),
     gesturesEnabled: true,
     headerTransparent: false,
     headerTitleStyle: {color: 'white'},
@@ -90,12 +89,12 @@ class Profile extends React.Component {
 
         <View>
           <View style={styles.chooseTextContainer}>
-            <Text style={styles.chooseText}>{SportLocales.en.sportSelection}</Text>
+            <Text style={styles.chooseText}>{i18n.t('sportSelection')}</Text>
           </View>
 
           {/* {this.props.auth.user.profiles.map(profile => ( */}
           {profiles.map(profile => (
-            <SportProfile isEnable={this.props.sport.name == profile.sport} sportTitle={'Football'} sportRank={getRank(profile.ranking)} onPress={this.football.bind(this)}></SportProfile>
+            <SportProfile key={profile.id} isEnable={this.props.sport.name == profile.sport} sportTitle={'Football'} sportRank={getRank(profile.ranking)} onPress={this.football.bind(this)}></SportProfile>
           ))};
           {/* <SportProfile isEnable={this.props.sport.name == 'football'} sportTitle={'Football'} sportRank={10} onPress={this.football.bind(this)}></SportProfile>
           <SportProfile isEnable={this.props.sport.name == 'basketball'} sportTitle={'Basket'} sportRank={7} onPress={this.basketball.bind(this)}></SportProfile> */}

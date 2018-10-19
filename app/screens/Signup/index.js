@@ -8,7 +8,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import { register } from '../../actions/user_auth';
 import colors from './../../assets/colors';
-import UserInformations from '../../assets/locales/UserInformations';
+import i18n from '../../lib/i18n';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -53,33 +53,33 @@ class Signup extends React.Component {
               <Form>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='md-person' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCapitalize={'none'} autoCorrect={false} type={'username'} onChangeText={(username) => this.setState({ username })} placeholder={UserInformations.en.username} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input autoCapitalize={'none'} autoCorrect={false} type={'username'} onChangeText={(username) => this.setState({ username })} placeholder={i18n.t('username')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCapitalize={'none'} autoCorrect={false} type={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={UserInformations.en.email} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input autoCapitalize={'none'} autoCorrect={false} type={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='md-person' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCorrect={false} onChangeText={(firstName) => this.setState({ firstName })} placeholder={UserInformations.en.firstName} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input autoCorrect={false} onChangeText={(firstName) => this.setState({ firstName })} placeholder={i18n.t('firstName')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='md-person' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCorrect={false} onChangeText={(lastName) => this.setState({ lastName })} placeholder={UserInformations.en.lastName} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input autoCorrect={false} onChangeText={(lastName) => this.setState({ lastName })} placeholder={i18n.t('lastNae')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='ios-unlock' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCapitalize={'none'} autoCorrect={false} secureTextEntry type='password' onChangeText={(password) => this.setState({ password })} placeholder={UserInformations.en.password} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input autoCapitalize={'none'} autoCorrect={false} secureTextEntry type='password' onChangeText={(password) => this.setState({ password })} placeholder={i18n.t('password')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='ios-unlock' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCapitalize={'none'} autoCorrect={false} secureTextEntry type='password' onChangeText={(confirmPassword) => this.setState({ confirmPassword })} placeholder={UserInformations.en.confirmPassword} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input autoCapitalize={'none'} autoCorrect={false} secureTextEntry type='password' onChangeText={(confirmPassword) => this.setState({ confirmPassword })} placeholder={i18n.t('confirmPassword')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
                 </Item>
                 <Button rounded block style={{marginTop: 30, backgroundColor: 'white'}} onPress={this.register.bind(this)}>
                 {this.props.auth.loading ? (
                   <Spinner color={colors.darkViolet1}/>
                 ) : (
-                  <Text style={{ color: colors.darkViolet1 }}>{UserInformations.en.signup}</Text>
+                  <Text style={{ color: colors.darkViolet1 }}>{i18n.t('signup')}</Text>
                 )}
                 </Button>
               </Form>

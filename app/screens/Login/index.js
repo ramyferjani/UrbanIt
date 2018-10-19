@@ -9,7 +9,6 @@ import { material } from 'react-native-typography';
 
 import { login } from '../../actions/user_auth';
 import colors from './../../assets/colors';
-import UserInformations from '../../assets/locales/UserInformations';
 import i18n from '../../lib/i18n';
 
 class Login extends React.Component {
@@ -59,20 +58,20 @@ class Login extends React.Component {
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='ios-unlock' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCapitalize={'none'} autoCorrect={false} secureTextEntry type='password' onChangeText={(password) => this.setState({ password })} placeholder={UserInformations.en.password} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input autoCapitalize={'none'} autoCorrect={false} secureTextEntry type='password' onChangeText={(password) => this.setState({ password })} placeholder={i18n.t('password')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
                 </Item>
                 <Button transparent light style={{marginVertical: 5}}>
-                  <Text>{UserInformations.en.forgotPassword}</Text>
+                  <Text>{i18n.t('forgotPassword')}</Text>
                 </Button>
                 <Button rounded block style={{marginVertical: 5, backgroundColor: 'white'}} onPress={this.login.bind(this)}>
                 {this.props.auth.loading ? (
                   <Spinner color={colors.darkViolet1}/>
                 ) : (
-                  <Text style={{ color: colors.darkViolet1 }}>{UserInformations.en.signin}</Text>)
+                  <Text style={{ color: colors.darkViolet1 }}>{i18n.t('signin')}</Text>)
                 }
                 </Button>
                 <Button transparent light style={{marginVertical: 5}} onPress={() => navigate('Signup')}>
-                  <Text>{UserInformations.en.noAccount}</Text>
+                  <Text>{i18n.t('noAccount')}</Text>
                 </Button>
               </Form>
               <Text>{this.props.auth.token || 'vide'}</Text>

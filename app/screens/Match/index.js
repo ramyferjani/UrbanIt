@@ -5,7 +5,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import { ListItem } from 'react-native-elements';
 
 import colors from '../../assets/colors';
-import Navigation from '../../assets/locales/Navigation';
+import i18n from '../../lib/i18n';
 
 const matches = [
   {
@@ -37,7 +37,7 @@ const matches = [
 export default class Match extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     // header: null,
-    title: Navigation.en.match,
+    title: i18n.t('match'),
     gesturesEnabled: true,
     // headerTransparent: true,
     headerTitleStyle: {color: 'white'},
