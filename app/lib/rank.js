@@ -20,4 +20,4 @@ export function getRank (elo) {
   } else if (elo > 2000) {
     return 10;
   }
-} 
+}

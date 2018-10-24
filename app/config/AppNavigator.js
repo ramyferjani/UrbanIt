@@ -11,7 +11,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import colors from '../assets/colors'
-import Navigation from '../assets/locales/Navigation';
 import LoginScreen from '../screens/Login';
 import SignupScreen from '../screens/Signup';
 import MainScreen from '../screens/Main';

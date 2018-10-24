@@ -20,7 +20,7 @@ class SportProfile extends React.Component {
   render() {
     return (
           <View style={styles.profileContainer}>
-          <TouchableHighlight style={[styles.profileButton, this.props.isEnable ? styles.profileEnabled : styles.profileDisabled]} onPress={this.props.onPress} underlayColor={this.props.isEnable? colors.darkViolet2 : colors.lightGray2}>
+          <TouchableHighlight style={[styles.profileButton, this.props.isEnable ? styles.profileEnabled : styles.profileDisabled]} onPress={this.props.onPress} underlayColor={this.props.isEnable? colors.darkViolet1 : colors.lightGray2}>
           <View style={styles.profile}>
             <View>
               {/* <FontAwesome

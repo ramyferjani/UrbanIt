@@ -6,7 +6,7 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		XN52pjEznwn+JSrkW4oRoDodZ+k=
+		68Aq7WHq9HVkrV913AAGLjl8tO4=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -14,11 +14,11 @@
 		</data>
 		<key>EvilIcons.ttf</key>
 		<data>
-		kdN36jz0dJCyVsLtCBcEp9q9rgw=
+		QZrcvnS7qREj2zspB3XjYvIS8+U=
 		</data>
 		<key>Feather.ttf</key>
 		<data>
-		N8tVG0ETiQxSP0aeapsrKcTEm+Q=
+		AiHzjp4t0CEzVCcxbr7QXuznQyM=
 		</data>
 		<key>FontAwesome.ttf</key>
 		<data>
@@ -87,15 +87,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		q4Q2NwUNFqGlH/yYqjA56nj8vxo=
+		d9v5rFjPtvBRIPVFhwyoTiP3Bws=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
-		mRu3+slwnNWNo3kBdw79RwPFQu0=
+		D3lWcE/mG0nEHqGiIFEkD3AKK0Q=
 		</data>
 		<key>MaterialCommunityIcons.ttf</key>
 		<data>
-		S1x3dOYog1mECtkRU/Ko2+92DD8=
+		LlRFFQPKQ8n7uDUD5LZhbhx4DRE=
 		</data>
 		<key>MaterialIcons.ttf</key>
 		<data>
@@ -103,7 +103,7 @@
 		</data>
 		<key>Octicons.ttf</key>
 		<data>
-		o/QP7s8JqAqYbxLVfGRtK0Wa+so=
+		+YreAPYbFuBieFv6gKSQafXjk7M=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -115,7 +115,7 @@
 		</data>
 		<key>PlugIns/UrbanItTests.xctest.dSYM/Contents/Resources/DWARF/UrbanItTests</key>
 		<data>
-		oIJ+x/Vx82YMc257n7WUB8ESFDI=
+		JUP/2nX3UbaEpyBhTahFAn4EiRo=
 		</data>
 		<key>PlugIns/UrbanItTests.xctest/Info.plist</key>
 		<data>
@@ -123,7 +123,7 @@
 		</data>
 		<key>PlugIns/UrbanItTests.xctest/UrbanItTests</key>
 		<data>
-		FOfWJqi9glQ5N9EVsb/1b78yEOE=
+		/pVBxduKxqI2KbNhP1oeOmjZHqg=
 		</data>
 		<key>PlugIns/UrbanItTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
@@ -156,11 +156,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XN52pjEznwn+JSrkW4oRoDodZ+k=
+			68Aq7WHq9HVkrV913AAGLjl8tO4=
 			</data>
 			<key>hash2</key>
 			<data>
-			/LPp4hjMrMFEBjk1otkJpc96Gj2rvQuNgR3E3uelDN4=
+			soGV5PVj+2QjECaYGLR62n3DESrNhcFEVoOIOF9kBLI=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -178,22 +178,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kdN36jz0dJCyVsLtCBcEp9q9rgw=
+			QZrcvnS7qREj2zspB3XjYvIS8+U=
 			</data>
 			<key>hash2</key>
 			<data>
-			pcrrTTlcXjLx1aMKyzgq68Zk8brf0UkxmQfyIV5OPiY=
+			J9GohnZmGjoiaVdpUtb3ANoFZEvAMFUR3iO3D3HKVDY=
 			</data>
 		</dict>
 		<key>Feather.ttf</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			N8tVG0ETiQxSP0aeapsrKcTEm+Q=
+			AiHzjp4t0CEzVCcxbr7QXuznQyM=
 			</data>
 			<key>hash2</key>
 			<data>
-			vJZj1K7YcJfMyjc62U/QjeJKxKNRAOPfO30oFCyQCUo=
+			sse5lKY8HPl6gBWzGq4njD9mmOqvSOduEWdc+dNdrHY=
 			</data>
 		</dict>
 		<key>FontAwesome.ttf</key>
@@ -367,22 +367,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mRu3+slwnNWNo3kBdw79RwPFQu0=
+			D3lWcE/mG0nEHqGiIFEkD3AKK0Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			INFzvLYFHQlzvgymqi+08npbKQ2AEGyyxWfI/cdyxxE=
+			u0dnmwuuuEgbf1HGitM65aUmc2y1CxcXzGD/a2X5CKM=
 			</data>
 		</dict>
 		<key>MaterialCommunityIcons.ttf</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			S1x3dOYog1mECtkRU/Ko2+92DD8=
+			LlRFFQPKQ8n7uDUD5LZhbhx4DRE=
 			</data>
 			<key>hash2</key>
 			<data>
-			9TfAzAnJLqAXEVh/QzQ9l4FAl3HGtS4KVqVdOpLoZvE=
+			hvzI5Ll2LOfABnIPjqOG8YBKGtVVv2xJ+8XfCHVI35c=
 			</data>
 		</dict>
 		<key>MaterialIcons.ttf</key>
@@ -400,11 +400,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			o/QP7s8JqAqYbxLVfGRtK0Wa+so=
+			+YreAPYbFuBieFv6gKSQafXjk7M=
 			</data>
 			<key>hash2</key>
 			<data>
-			8KI41G1nSeYBwS8g+PwDIB8Ze5/jR75MLJRP/FxLYDU=
+			NC9CWcIUkNdDyFv9XLIgM5voHcU7RU+sU2mnqmpBMI4=
 			</data>
 		</dict>
 		<key>PlugIns/UrbanItTests.xctest.dSYM/Contents/Info.plist</key>
@@ -422,11 +422,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oIJ+x/Vx82YMc257n7WUB8ESFDI=
+			JUP/2nX3UbaEpyBhTahFAn4EiRo=
 			</data>
 			<key>hash2</key>
 			<data>
-			H866AY6GDqLvutXPXDh0vcqlzIus8onZjZFfXF6071c=
+			Nof1Ks55qsCeH8UEOtBCi1RpcFQjE9Rl8MssfiAg1ow=
 			</data>
 		</dict>
 		<key>PlugIns/UrbanItTests.xctest/Info.plist</key>
@@ -444,11 +444,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FOfWJqi9glQ5N9EVsb/1b78yEOE=
+			/pVBxduKxqI2KbNhP1oeOmjZHqg=
 			</data>
 			<key>hash2</key>
 			<data>
-			0vIAtUmyjPnhZr5cQMhiKwFjH8wBG7iPD2HYu7jed+o=
+			qTllAYIUWS/LXoWQpAvywAKH2qWaSMMjLcH5cG2Vtro=
 			</data>
 		</dict>
 		<key>PlugIns/UrbanItTests.xctest/_CodeSignature/CodeResources</key>

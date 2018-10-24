@@ -5,32 +5,19 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Avatar, Divider, Button } from 'react-native-elements';
 import { material } from 'react-native-typography';
 
-import { FOOTBALL, BASKETBALL } from '../../lib/constants';
+// import { CHANGE_SPORT } from '../../lib/constants';
 import colors from '../../assets/colors';
 import SportProfile from '../../components/SportProfile';
 import i18n from '../../lib/i18n';
 import { getRank } from '../../lib/rank';
-
+import { changeProfile } from '../../actions/profile';
 
 var { height, width } = Dimensions.get('window');
 
-const profiles = [{
-  id: 1,
-  size: "186",
-  weight: "75",
-  numero: 9,
-  position: "Attaquant",
-  ranking: "1000",
-  sport: 'basketball',
-}]
-
 class Profile extends React.Component {
-  football = () => {
-    this.props.dispatch({ type: FOOTBALL });
-  }
 
-  basketball = () => {
-    this.props.dispatch({ type: BASKETBALL });
+  changeProfile = (profile) => {
+    this.props.dispatchChangeProfile(profile);
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -72,7 +59,7 @@ class Profile extends React.Component {
               />
             </View>
             <View style={styles.nameContainer}>
-              <Text style={material.headlineWhite}>James Bond</Text>
+              <Text style={material.headlineWhite}>{this.props.auth.user.firstName} {this.props.auth.user.lastName}</Text>
             </View>
           </View>
           {/* <Divider style={{ backgroundColor: colors.darkGray1, marginHorizontal: 20 }} /> */}
@@ -92,13 +79,13 @@ class Profile extends React.Component {
             <Text style={styles.chooseText}>{i18n.t('sportSelection')}</Text>
           </View>
 
-          {/* {this.props.auth.user.profiles.map(profile => ( */}
-          {profiles.map(profile => (
-            <SportProfile key={profile.id} isEnable={this.props.sport.name == profile.sport} sportTitle={profile.sport} sportRank={getRank(profile.ranking)} onPress={this.basketball.bind(this)}></SportProfile>
+          {this.props.auth.user.profiles.map(profile => (
+          // {profiles.map(profile => (
+            <SportProfile key={profile.id} isEnable={this.props.profile.sport && this.props.profile.sport.sport == profile.sport.sport} sportTitle={profile.sport.sport} sportRank={getRank(profile.ranking)} onPress={() => this.changeProfile(profile)}></SportProfile>
           ))};
           {/* <SportProfile isEnable={this.props.sport.name == 'football'} sportTitle={'Football'} sportRank={10} onPress={this.football.bind(this)}></SportProfile>
           <SportProfile isEnable={this.props.sport.name == 'basketball'} sportTitle={'Basket'} sportRank={7} onPress={this.basketball.bind(this)}></SportProfile> */}
-          <TouchableHighlight style={{height: 50, margin: 15, backgroundColor: colors.darkViolet1, borderRadius: 5, alignItems: 'center'}} underlayColor={colors.darkViolet2} onPress={() => this.props.navigation.navigate('CreateProfile')}>
+          <TouchableHighlight disabled={this.props.sports.availableSports.length < 1} style={{height: 50, margin: 15, backgroundColor: colors.darkViolet1, borderRadius: 5, alignItems: 'center'}} underlayColor={colors.darkViolet1} onPress={() => this.props.navigation.navigate('CreateProfile')}>
           <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 10, alignItems: 'center'}}>
             <FontAwesome name='plus' size={20} color='white'/>
             {/* <Text style={{color: 'white', fontSize: 20}}>   {SportLocales.en.addSport}</Text> */}
@@ -116,12 +103,17 @@ class Profile extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    sport: state.sport,
+    profile: state.profile,
+    sports: state.sports,
     auth: state.auth,
   };
 }
 
-export default connect(mapStateToProps)(Profile);
+const mapDispatchToProps = {
+  dispatchChangeProfile: (profile) => changeProfile(profile),
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 
 const styles = StyleSheet.create({
   editButtonText: {

@@ -27,5 +27,19 @@
   "height": "Height",
   "weight": "Weight",
   "number": "Player number",
-  "position": "Position"
+  "position": "Position",
+  "positionSelection": "Choose your position",
+  "attacker": "Attacker",
+  "midfielder": "Midfielder",
+  "defender": "Defender",
+  "goalkeeper": "Goalkeeper",
+  "pointGuard": "Point guard",
+  "shootingGuard": "Shooting guard",
+  "smallForward": "Small forward",
+  "powerForward": "Power forward",
+  "center": "Center",
+  "football": "Football",
+  "basketball": "Basketball",
+  "save": "Save",
+  "back": "Back"
 }

@@ -7,6 +7,9 @@ import { Container, Header, Content, List, Button, ListItem, Text, Icon, Left, B
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
 import { logout } from '../../actions/user_auth';
+import { setAvailableSports, setUnavailableSports } from '../../actions/sports';
+import { changeProfile } from '../../actions/profile';
+
 
 class Settings extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -33,6 +36,9 @@ class Settings extends React.Component {
 
   logout = () => {
     this.props.dispatchLogout();
+    this.props.dispatchSetAvailableSports([]);
+    this.props.dispatchSetUnavailableSports([]);
+    this.props.dispatchChangeProfile({});
     this.props.navigation.navigate('Auth');
   }
 
@@ -61,6 +67,9 @@ class Settings extends React.Component {
 
 const mapDispatchToProps = {
   dispatchLogout: () => logout(),
+  dispatchSetAvailableSports: (sports) => setAvailableSports(sports),
+  dispatchSetUnavailableSports: (sports) => setUnavailableSports(sports),
+  dispatchChangeProfile: (profile) => changeProfile(profile),
 }
 
 const mapStateToProps = state => ({

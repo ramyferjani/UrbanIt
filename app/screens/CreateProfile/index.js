@@ -1,89 +1,153 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { StyleSheet, View, TouchableHighlight, TouchableOpacity } from 'react-native';
 // import { Input, Button } from 'react-native-elements';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left } from 'native-base';
+import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label } from 'native-base';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
-export default class CreateProfile extends React.Component {
+import * as positions from '../../lib/positions';
+import { sports } from '../../lib/sports';
+
+const mapStateToProps = state => ({
+  profile: state.profile,
+  auth: state.auth,
+  sports: state.sports
+})
+
+class CreateProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedSport: null,
+      selectedSport: this.props.sports.availableSports[0],
+      selectedPosition: null,
+      // availableSports: this.getAvailableSports(),
     };
   }
 
   static navigationOptions = ({ navigation }) => ({
-      // header: null,
-      title: i18n.t('createProfile'),
-      gesturesEnabled: true,
-      headerTransparent: false,
-      headerStyle: {
-        backgroundColor: colors.darkViolet1,
-      },
-      headerTitleStyle: {color: 'white'},
-      headerBackTitle: '',
-      tabBarVisible: false,
-      headerLeft: (
-        <TouchableHighlight onPress={() => navigation.goBack()} underlayColor={'transparent'} style={{paddingLeft: 10}}>
-          <FontAwesome
-                  name='arrow-left'
-                  size={24}
-                  color={'white'}
-                />
-        </TouchableHighlight>
-      )
-      // headerLeft: null,
-    })
+    // header: null,
+    title: i18n.t('createProfile'),
+    gesturesEnabled: true,
+    headerTransparent: false,
+    headerStyle: {
+      backgroundColor: colors.darkViolet1,
+    },
+    headerTitleStyle: {color: 'white'},
+    headerBackTitle: '',
+    tabBarVisible: false,
+    headerLeft: (
+      <TouchableHighlight onPress={() => navigation.goBack()} underlayColor={'transparent'} style={{paddingLeft: 10}}>
+        <FontAwesome
+                name='arrow-left'
+                size={24}
+                color={'white'}
+              />
+      </TouchableHighlight>
+    )
+    // headerLeft: null,
+  })
+
+  // getAvailableSports = () => {
+  //   let availableSports = sports;
+  //   let unavailableSports = this.getSportsFromProfiles();
+
+  //   unavailableSports.forEach(unvSport => {
+  //     availableSports = availableSports.filter(avaSport => avaSport !== unvSport);
+  //   });
+  //   return availableSports;
+  // }
+
+  // getSportsFromProfiles = () => {
+  //   const { profiles } = this.props.auth.user;
+  //   let sports = [];
+  //   profiles.map(profile => {
+  //     sports.push(profile.sport.sport);
+  //   });
+  //   return sports;
+  //   // this.props.auth.user.
+  // }
+
+  setSport = (selectedSport) => {
+    this.setState({
+      selectedSport,
+      selectedPosition: null,
+    });
+  }
 
   render() {
+    const { availableSports } = this.props.sports;
     return (
       <Container>
         <Content padder>
-          <Form>
+          {/* <Form> */}
             <Item>
               <Left>
-                <Text>Sport</Text>
+                <Text>{i18n.t('sport')}</Text>
               </Left>
               <Right>
                 <Picker
-                  iosHeader='Sport'
+                  iosHeader={i18n.t('sport')}
                   mode="dropdown"
                   iosIcon={<Icon name="ios-arrow-down-outline" />}
                   style={{ width: undefined }}
-                  placeholder="Select your Sport"
-                  placeholderStyle={{ color: "#bfc6ea" }}
+                  placeholder={i18n.t('sportSelection')}
+                  // placeholderStyle={{ color: "#bfc6ea" }}
                   placeholderIconColor="#007aff"
                   selectedValue={this.state.selectedSport}
-                  onValueChange={(selectedSport) => { this.setState({ selectedSport }) }}
+                  onValueChange={this.setSport.bind(this)}
                 >
-                  <Picker.Item label="Football" value="football" />
-                  <Picker.Item label="Basketball" value="basketball" />
+                {availableSports.map(sport => {
+                  return (
+                    <Picker.Item key={sport} label={i18n.t(sport)} value={sport} />
+                  )
+                })}
                 </Picker>
               </Right>
             </Item>
             <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
-              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+              {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
+              <Label>{i18n.t('height')}</Label>
+              <Input  autoCapitalize={'none'} autoCorrect={false} keyboardType={'numeric'} onChangeText={(email) => this.setState({ email })} style={{ color: "#000" }}/>
             </Item>
             <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
-              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+              {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
+              <Label>{i18n.t('weight')}</Label>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'numeric'} onChangeText={(email) => this.setState({ email })} style={{ color: "#000" }}/>
             </Item>
             <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
-              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+              {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
+              <Label>{i18n.t('number')}</Label>
+              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'numeric'} onChangeText={(email) => this.setState({ email })}  style={{ color: "#000" }}/>
             </Item>
-            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
-              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+            <Item last>
+                <Text>{i18n.t('position')}</Text>
+              <Right>
+                <Picker
+                  iosHeader={i18n.t('position')}
+                  mode="dropdown"
+                  iosIcon={<Icon name="ios-arrow-down-outline" />}
+                  style={{ width: undefined }}
+                  placeholder={i18n.t('positionSelection')}
+                  placeholderStyle={{ color: "#bfc6ea" }}
+                  placeholderIconColor="#007aff"
+                  selectedValue={this.state.selectedPosition}
+                  onValueChange={(selectedPosition) => { this.setState({ selectedPosition }) }}
+                >
+                  {positions[this.state.selectedSport].map(position => {
+                    return (
+                      <Picker.Item key={position} label={i18n.t(position)} value={position} />
+                    )
+                  })}
+                  
+                </Picker>
+              </Right>
             </Item>
-            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
-              <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
-            </Item>
-          </Form>
+            <Button block style={{backgroundColor: colors.darkViolet1, marginTop: 30}}>
+              <Text>{i18n.t('save')}</Text>
+            </Button>
+          {/* </Form> */}
         </Content>
       </Container>
     );
@@ -153,6 +217,8 @@ const styles = StyleSheet.create({
     color: '#fff',
   }
 });
+
+export default connect(mapStateToProps)(CreateProfile);
 
 // render() {
 //   return (

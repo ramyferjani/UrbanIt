@@ -10,6 +10,9 @@ import { material } from 'react-native-typography';
 import { login } from '../../actions/user_auth';
 import colors from './../../assets/colors';
 import i18n from '../../lib/i18n';
+import { setAvailableSports, setUnavailableSports } from '../../actions/sports';
+import { sports } from '../../lib/sports';
+import { changeProfile } from '../../actions/profile';
 
 class Login extends React.Component {
   constructor(props) {
@@ -38,13 +41,53 @@ class Login extends React.Component {
     const { email, password } = this.state;
     this.props.dispatchLogin(email, password).then(() => {
       if (this.props.auth.isLoggedIn) {
+        this._setSports();
+        this._setProfile();
         this.props.navigation.navigate('App');
       }
     });
   }
 
+  _setProfile = () => {
+    const { profiles } = this.props.auth.user;
+
+    if (profiles.length > 0) {
+      this.props.dispatchChangeProfile(profiles[0]);
+    }
+  }
+
+  _setSports = () => {
+    if (!this.props.auth.isLoggedIn) {
+      return;
+    }
+
+    this.props.dispatchSetAvailableSports(this._getAvailableSports());
+    this.props.dispatchSetUnavailableSports(this._getSportsFromProfiles());
+  }
+
+  _getAvailableSports = () => {
+    let availableSports = sports;
+    let unavailableSports = this._getSportsFromProfiles();
+
+    unavailableSports.forEach(unvSport => {
+      availableSports = availableSports.filter(avaSport => avaSport !== unvSport);
+    });
+    return availableSports;
+  }
+
+  _getSportsFromProfiles = () => {
+    const { profiles } = this.props.auth.user;
+    let sports = [];
+    profiles.map(profile => {
+      sports.push(profile.sport.sport);
+    });
+    return sports;
+    // this.props.auth.user.
+  }
+
   render() {
     const { navigate } = this.props.navigation;
+    const { auth } = this.props;
 
     return (
       <LinearGradient style={{flex: 1}} start={{x: 0.3, y: 0.3}} end={{x: 1, y: 1}} colors={[colors.darkViolet1, colors.lightBlue]} locations={[0.3,0.65]}>
@@ -52,13 +95,19 @@ class Login extends React.Component {
           <Container style={{ backgroundColor: 'rgba(0,0,0,0)'}}>
             <Content padder>
               <Form>
-                <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+                <Item error={auth.login && auth.error && auth.error.user ? true : false} style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='md-mail' style={{color: '#FFF'}} type={'Ionicons'}/>
                   <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'email-address'} onChangeText={(email) => this.setState({ email })} placeholder={i18n.t('email')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  {auth.login && auth.error && auth.error.user ? (
+                    <Icon name='close-circle' style={{color: '#e85600'}} />
+                  ) : (null)}
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='ios-unlock' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCapitalize={'none'} autoCorrect={false} secureTextEntry type='password' onChangeText={(password) => this.setState({ password })} placeholder={i18n.t('password')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input error={auth.login && auth.error && auth.error.password ? true : false} autoCapitalize={'none'} autoCorrect={false} secureTextEntry type='password' onChangeText={(password) => this.setState({ password })} placeholder={i18n.t('password')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  {auth.login && auth.error && auth.error.user ? (
+                    <Icon name='close-circle' style={{color: '#e85600'}} />
+                  ) : (null)}
                 </Item>
                 <Button transparent light style={{marginVertical: 5}}>
                   <Text>{i18n.t('forgotPassword')}</Text>
@@ -85,10 +134,14 @@ class Login extends React.Component {
 
 const mapDispatchToProps = {
   dispatchLogin: (email, password) => login(email, password),
+  dispatchSetAvailableSports: (sports) => setAvailableSports(sports),
+  dispatchSetUnavailableSports: (sports) => setUnavailableSports(sports), 
+  dispatchChangeProfile: (profile) => changeProfile(profile),
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  profile: state.profile
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

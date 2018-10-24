@@ -64,7 +64,7 @@ class Main extends React.Component {
       <PlayerIcon height={iconWidth} width={iconWidth} player={false} key={i}/>
       )
     }
-    if (team.length < this.props.sport.maxPlayers) {
+    if (team.length < this.props.profile.nbPlayers) {
       console.warn('smaller')
     }
     // return this.props.sport.maxPlayers;
@@ -79,19 +79,18 @@ class Main extends React.Component {
       // backgroundColor="blue"
       barStyle="dark-content"
       />
-      <View style={{ paddingLeft : 30, paddingTop: 20, backgroundColor: colors.darkViolet1, height: 70 + (width - 80) / 5 + 20 }}>
+      {/* <View style={{ paddingLeft : 30, paddingTop: 20, backgroundColor: colors.darkViolet1, height: 70 + (width - 80) / 5 + 20 }}>
         <Text style={material.headlineWhite}>{i18n.t('myTeam')}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: width - 60, paddingTop: 20}}>
           {this.generatePlayers(team)}
         </View>
-      </View>
+      </View> */}
 
       {/* <View style={{width: '100%', height: 200, paddingHorizontal: 20, paddingVertical: 10}}>
         <View style={{flex: 1, backgroundColor: 'white', borderRadius: 8, shadowOpacity: 0.75, shadowRadius: 5, shadowColor: colors.darkGray1, shadowOffset: { height: 0, width: 0}}}>
 
         </View>
       </View> */}
-
       <TouchableHighlight style={{height: 50, marginHorizontal: 20, marginVertical: 10, marginTop: 30, backgroundColor: 'white', borderRadius: 5, shadowOpacity: 0.75, shadowRadius: 5, shadowColor: colors.darkGray2, shadowOffset: { height: 0, width: 0}}} underlayColor={colors.lightGray2} onPress={() => console.log('test')}>
           <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: width / 15, alignItems: 'center'}}>
             <FontAwesome name='play-circle-o' size={25} color={colors.darkViolet1}/>
@@ -148,7 +147,7 @@ class Main extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    sport: state.sport
+    profile: state.profile
   };
 }
 

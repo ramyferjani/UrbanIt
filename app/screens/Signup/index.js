@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View, Image, SafeAreaView, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
-import { Container, Content, Item, Input, Form, InputGroup, Icon, Button, Text, Right } from 'native-base';
+import { Container, Content, Item, Input, Form, InputGroup, Icon, Button, Text, Right, Spinner } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import { Input, Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
@@ -65,7 +65,7 @@ class Signup extends React.Component {
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='md-person' style={{color: '#FFF'}} type={'Ionicons'}/>
-                  <Input autoCorrect={false} onChangeText={(lastName) => this.setState({ lastName })} placeholder={i18n.t('lastNae')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
+                  <Input autoCorrect={false} onChangeText={(lastName) => this.setState({ lastName })} placeholder={i18n.t('lastName')} style={{ color: "#FFF" }} placeholderTextColor={'#FFF'}/>
                 </Item>
                 <Item style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
                   <Icon name='ios-unlock' style={{color: '#FFF'}} type={'Ionicons'}/>
