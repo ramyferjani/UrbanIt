@@ -31,13 +31,13 @@ class Profile extends React.Component {
     },
     // headerBackTitle: ,
     headerRight: (
-      <TouchableHighlight onPress={() => navigation.navigate('Messages')} underlayColor={'transparent'} style={{paddingRight: 15}}>
+      <TouchableHighlight onPress={() => navigation.navigate('EditProfile')} underlayColor={'transparent'} style={{paddingRight: 15}}>
         {/* <FontAwesome
                 name='send-o'
                 size={24}
                 color={colors.darkGray1}
               /> */}
-        <Text style={styles.editButtonText}>Edit</Text>
+        <Text style={styles.editButtonText}>{i18n.t('edit')}</Text>
       </TouchableHighlight>
     ),
     headerLeft: null,
@@ -79,7 +79,7 @@ class Profile extends React.Component {
             <Text style={styles.chooseText}>{i18n.t('sportSelection')}</Text>
           </View>
 
-          {this.props.auth.user.profiles.map(profile => (
+          {this.props.profiles.map(profile => (
           // {profiles.map(profile => (
             <SportProfile key={profile.id} isEnable={this.props.profile.sport && this.props.profile.sport.sport == profile.sport.sport} sportTitle={profile.sport.sport} sportRank={getRank(profile.ranking)} onPress={() => this.changeProfile(profile)}></SportProfile>
           ))};
@@ -106,6 +106,7 @@ function mapStateToProps(state) {
     profile: state.profile,
     sports: state.sports,
     auth: state.auth,
+    profiles: state.profiles,
   };
 }
 

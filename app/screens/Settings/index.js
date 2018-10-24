@@ -9,6 +9,7 @@ import i18n from '../../lib/i18n';
 import { logout } from '../../actions/user_auth';
 import { setAvailableSports, setUnavailableSports } from '../../actions/sports';
 import { changeProfile } from '../../actions/profile';
+import { setProfiles } from '../../actions/profiles';
 
 
 class Settings extends React.Component {
@@ -39,6 +40,7 @@ class Settings extends React.Component {
     this.props.dispatchSetAvailableSports([]);
     this.props.dispatchSetUnavailableSports([]);
     this.props.dispatchChangeProfile({});
+    this.props.dispatchSetProfiles([]);
     this.props.navigation.navigate('Auth');
   }
 
@@ -70,6 +72,7 @@ const mapDispatchToProps = {
   dispatchSetAvailableSports: (sports) => setAvailableSports(sports),
   dispatchSetUnavailableSports: (sports) => setUnavailableSports(sports),
   dispatchChangeProfile: (profile) => changeProfile(profile),
+  dispatchSetProfiles: (profiles) => setProfiles(profiles),
 }
 
 const mapStateToProps = state => ({

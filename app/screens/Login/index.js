@@ -13,6 +13,7 @@ import i18n from '../../lib/i18n';
 import { setAvailableSports, setUnavailableSports } from '../../actions/sports';
 import { sports } from '../../lib/sports';
 import { changeProfile } from '../../actions/profile';
+import { setProfiles } from '../../actions/profiles';
 
 class Login extends React.Component {
   constructor(props) {
@@ -43,9 +44,14 @@ class Login extends React.Component {
       if (this.props.auth.isLoggedIn) {
         this._setSports();
         this._setProfile();
+        this._setProfiles(this.props.auth.user.profiles);
         this.props.navigation.navigate('App');
       }
     });
+  }
+
+  _setProfiles = (profiles) => {
+    this.props.dispatchSetProfiles(profiles);
   }
 
   _setProfile = () => {
@@ -137,11 +143,12 @@ const mapDispatchToProps = {
   dispatchSetAvailableSports: (sports) => setAvailableSports(sports),
   dispatchSetUnavailableSports: (sports) => setUnavailableSports(sports), 
   dispatchChangeProfile: (profile) => changeProfile(profile),
+  dispatchSetProfiles: (profiles) => setProfiles(profiles),
 }
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -9,19 +9,36 @@ import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
 import * as positions from '../../lib/positions';
 import { sports } from '../../lib/sports';
+import { createProfile } from '../../actions/api_profiles';
+// import { addProfile } from '../../actions/profiles';
 
 const mapStateToProps = state => ({
   profile: state.profile,
   auth: state.auth,
-  sports: state.sports
+  sports: state.sports,
+  apiProfiles: state.apiProfiles
 })
+
+const mapDispatchToProps = {
+  dispatchCreateProfile: (profile) => createProfile(profile),
+}
 
 class CreateProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedSport: this.props.sports.availableSports[0],
-      selectedPosition: null,
+      sport: this.props.sports.availableSports[0],
+      position: null,
+      height: null,
+      weight: null,
+      number: null,
+      status: {
+        sport: null,
+        position: null,
+        height: null,
+        weight: null,
+        number: null,
+      }
       // availableSports: this.getAvailableSports(),
     };
   }
@@ -69,10 +86,22 @@ class CreateProfile extends React.Component {
   //   // this.props.auth.user.
   // }
 
-  setSport = (selectedSport) => {
+  setSport = (sport) => {
     this.setState({
-      selectedSport,
-      selectedPosition: null,
+      sport,
+      position: null,
+    });
+  }
+
+  confirm = () => {
+    const { sport, position, height, weight, number } = this.state;
+    if (!sport || !position || !height || !weight || !number) {
+      console.log(`sport ${sport} position ${position} height ${height} weight ${weight} number ${number}` )
+      console.log('empty');
+      return;
+    }
+    this.props.dispatchCreateProfile({idUser: this.props.auth.user.id, sport, position, size: height, weight, numero: number}).then(() => {
+      this.props.navigation.goBack();
     });
   }
 
@@ -95,8 +124,9 @@ class CreateProfile extends React.Component {
                   placeholder={i18n.t('sportSelection')}
                   // placeholderStyle={{ color: "#bfc6ea" }}
                   placeholderIconColor="#007aff"
-                  selectedValue={this.state.selectedSport}
+                  selectedValue={this.state.sport}
                   onValueChange={this.setSport.bind(this)}
+                  headerBackButtonText={i18n.t('back')}
                 >
                 {availableSports.map(sport => {
                   return (
@@ -106,20 +136,20 @@ class CreateProfile extends React.Component {
                 </Picker>
               </Right>
             </Item>
-            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+            <Item fixedLabel /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
               <Label>{i18n.t('height')}</Label>
-              <Input  autoCapitalize={'none'} autoCorrect={false} keyboardType={'numeric'} onChangeText={(email) => this.setState({ email })} style={{ color: "#000" }}/>
+              <Input textAlign={'right'} maxLength={3} autoCapitalize={'none'} autoCorrect={false} keyboardType={'number-pad'} onChangeText={(height) => this.setState({ height })} style={{ color: "#000" }}/>
             </Item>
-            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+            <Item fixedLabel/*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
               <Label>{i18n.t('weight')}</Label>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'numeric'} onChangeText={(email) => this.setState({ email })} style={{ color: "#000" }}/>
+              <Input textAlign={'right'} maxLength={3} autoCapitalize={'none'} autoCorrect={false} keyboardType={'number-pad'} onChangeText={(weight) => this.setState({ weight })} style={{ color: "#000" }}/>
             </Item>
-            <Item /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+            <Item fixedLabel/*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
               <Label>{i18n.t('number')}</Label>
-              <Input autoCapitalize={'none'} autoCorrect={false} keyboardType={'numeric'} onChangeText={(email) => this.setState({ email })}  style={{ color: "#000" }}/>
+              <Input textAlign={'right'} maxLength={2} autoCapitalize={'none'} autoCorrect={false} keyboardType={'number-pad'} onChangeText={(number) => this.setState({ number })}  style={{ color: "#000" }}/>
             </Item>
             <Item last>
                 <Text>{i18n.t('position')}</Text>
@@ -132,10 +162,11 @@ class CreateProfile extends React.Component {
                   placeholder={i18n.t('positionSelection')}
                   placeholderStyle={{ color: "#bfc6ea" }}
                   placeholderIconColor="#007aff"
-                  selectedValue={this.state.selectedPosition}
-                  onValueChange={(selectedPosition) => { this.setState({ selectedPosition }) }}
+                  selectedValue={this.state.position}
+                  onValueChange={(position) => { this.setState({ position }) }}
+                  headerBackButtonText={i18n.t('back')}
                 >
-                  {positions[this.state.selectedSport].map(position => {
+                  {positions[this.state.sport].map(position => {
                     return (
                       <Picker.Item key={position} label={i18n.t(position)} value={position} />
                     )
@@ -144,8 +175,13 @@ class CreateProfile extends React.Component {
                 </Picker>
               </Right>
             </Item>
-            <Button block style={{backgroundColor: colors.darkViolet1, marginTop: 30}}>
-              <Text>{i18n.t('save')}</Text>
+            <Button block onPress={this.confirm} style={{backgroundColor: colors.darkViolet1, marginTop: 30}}>
+              {this.props.apiProfiles.loading ? (
+                <Spinner color={'white'}/>
+              ) : (
+                <Text>{i18n.t('save')}</Text>
+              )}
+              
             </Button>
           {/* </Form> */}
         </Content>
@@ -153,6 +189,9 @@ class CreateProfile extends React.Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProfile);
+
 
 const styles = StyleSheet.create({
   container: {
@@ -217,8 +256,6 @@ const styles = StyleSheet.create({
     color: '#fff',
   }
 });
-
-export default connect(mapStateToProps)(CreateProfile);
 
 // render() {
 //   return (

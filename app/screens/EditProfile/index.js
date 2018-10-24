@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, SafeAreaView, Dimensions } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { Avatar, Divider, Button } from 'react-native-elements';
+// import { Avatar, Divider, Button } from 'react-native-elements';
+import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label } from 'native-base';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
@@ -19,16 +20,16 @@ export default class EditProfile extends React.Component {
     headerTransparent: false,
     headerTitleStyle: {color: 'white'},
     // headerBackTitle: ,
-    headerRight: (
-      <TouchableHighlight onPress={() => navigation.navigate('Messages')} underlayColor={'transparent'} style={{paddingRight: 15}}>
-        {/* <FontAwesome
-                name='send-o'
-                size={24}
-                color={colors.darkGray1}
-              /> */}
-        <Text style={styles.editButtonText}>Edit</Text>
-      </TouchableHighlight>
-    ),
+    // headerRight: (
+    //   <TouchableHighlight onPress={() => navigation.navigate('Messages')} underlayColor={'transparent'} style={{paddingRight: 15}}>
+    //     {/* <FontAwesome
+    //             name='send-o'
+    //             size={24}
+    //             color={colors.darkGray1}
+    //           /> */}
+    //     <Text style={styles.editButtonText}>Edit</Text>
+    //   </TouchableHighlight>
+    // ),
     headerLeft: null,
   })
 

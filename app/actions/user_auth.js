@@ -105,7 +105,7 @@ export function register(username, email, firstName, lastName, password) {
       .catch((err) => {
         /* eslint-disable no-console */
         console.log(err);
-        dispatch(loginFailure( err.response ? err.response.data.data : null));
+        dispatch(registerFailure( err.response ? err.response.data.data : null));
         // this.$store.commit('registerFailure');
         // this.errors.push(err);
       });
