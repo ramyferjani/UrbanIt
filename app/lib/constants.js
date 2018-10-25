@@ -7,6 +7,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const REGISTER_BEGIN = 'REGISTER_BEGIN';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
+export const UPDATE_USER = 'UPDATE_USER';
 export const LOGOUT = 'LOGOUT';
 export const CHANGE_SPORT = 'CHANGE_SPORT';
 export const GET_SPORTS = 'GET_SPORTS';

@@ -43,5 +43,6 @@
   "save": "Save",
   "back": "Back",
   "edit": "Edit",
-  "editUserInfo": "Edit your infos"
+  "editUserInfo": "Edit your infos",
+  "description": "Description"
 }

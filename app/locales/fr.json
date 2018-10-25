@@ -43,5 +43,6 @@
   "save": "Enregistrer",
   "back": "Retour",
   "edit": "Éditer",
-  "editUserInfo": "Éditer vos infos"
+  "editUserInfo": "Éditer vos infos",
+  "description": "Description"
 }

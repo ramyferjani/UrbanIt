@@ -8,6 +8,7 @@ import profile from './profile';
 import sports from './sports.reducer';
 import profiles from './profiles.reducer';
 import apiProfiles from './api_profiles.reducer';
+import updateUser from './updateUser';
 
 
 export default combineReducers({
@@ -18,5 +19,6 @@ export default combineReducers({
   profile,
   sports,
   profiles,
-  apiProfiles
+  apiProfiles,
+  updateUser
 });

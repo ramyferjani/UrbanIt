@@ -1,7 +1,7 @@
 import axios from 'axios';
 import querystring from 'querystring';
 
-import { LOGIN_BEGIN, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT, REGISTER_BEGIN, REGISTER_SUCCESS, REGISTER_FAILURE } from '../lib/constants';
+import { LOGIN_BEGIN, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT, REGISTER_BEGIN, REGISTER_SUCCESS, REGISTER_FAILURE, UPDATE_USER } from '../lib/constants';
 
 function loginBegin() {
   return {
@@ -55,6 +55,16 @@ function status(response) {
   return (promise);
 };
 
+export function updateUserInfo(user) {
+  return {
+    type: UPDATE_USER,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    username: user.username,
+    description: user.description,
+  }
+}
+
 export function login(email, password) {
   return (dispatch) => {
     dispatch(loginBegin());
@@ -93,7 +103,7 @@ export function register(username, email, firstName, lastName, password) {
       firstName,
       lastName,
       password,
-      description: 'new user',
+      description: '',
     }))
       .then(this.status)
       .then((res) => {

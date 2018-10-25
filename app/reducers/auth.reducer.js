@@ -1,4 +1,4 @@
-import { LOGIN_BEGIN, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT, REGISTER_BEGIN, REGISTER_SUCCESS, REGISTER_FAILURE } from '../lib/constants';
+import { LOGIN_BEGIN, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT, REGISTER_BEGIN, REGISTER_SUCCESS, REGISTER_FAILURE, UPDATE_USER } from '../lib/constants';
 
 const initialState = {
   isLoggedIn: false,
@@ -23,6 +23,8 @@ const auth = (state = initialState, action) => {
       return { ...state, loading: false, user: action.user, token: action.token, isLoggedIn: true, };
     case REGISTER_FAILURE:
       return { ...state, loading: false, error: action.error, };
+    case UPDATE_USER:
+      return { ...state, user: { ...state.user, firstName: action.firstName, lastName: action.lastName, username: action.username, description: action.description }}
     case LOGOUT:
       return { ...state, isLoggedIn: false, user: {}, token: null, };
     default:

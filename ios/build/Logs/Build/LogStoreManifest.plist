@@ -6,6 +6,35 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
+		<key>41351668-390E-45B4-B80D-EB7872726FBF</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>41351668-390E-45B4-B80D-EB7872726FBF.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>UrbanIt project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>UrbanIt</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>562189839.77428305</real>
+			<key>timeStoppedRecording</key>
+			<real>562189857.37780702</real>
+			<key>title</key>
+			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>41351668-390E-45B4-B80D-EB7872726FBF</string>
+		</dict>
 		<key>BF42433D-C868-4F9A-AE7F-986E10607F67</key>
 		<dict>
 			<key>className</key>
@@ -34,35 +63,6 @@
 			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
 			<key>uniqueIdentifier</key>
 			<string>BF42433D-C868-4F9A-AE7F-986E10607F67</string>
-		</dict>
-		<key>E4C0F16A-AA5E-4E11-A1DA-BDFD44A98C81</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
-			<key>fileName</key>
-			<string>E4C0F16A-AA5E-4E11-A1DA-BDFD44A98C81.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>W</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>UrbanIt project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>UrbanIt</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>561679785.88051498</real>
-			<key>timeStoppedRecording</key>
-			<real>561679794.70783103</real>
-			<key>title</key>
-			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>E4C0F16A-AA5E-4E11-A1DA-BDFD44A98C81</string>
 		</dict>
 	</dict>
 </dict>

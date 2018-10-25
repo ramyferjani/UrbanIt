@@ -31,7 +31,7 @@ class Profile extends React.Component {
     },
     // headerBackTitle: ,
     headerRight: (
-      <TouchableHighlight onPress={() => navigation.navigate('EditProfile')} underlayColor={'transparent'} style={{paddingRight: 15}}>
+      <TouchableHighlight onPress={() => navigation.navigate('EditUserInfo')} underlayColor={'transparent'} style={{paddingRight: 15}}>
         {/* <FontAwesome
                 name='send-o'
                 size={24}

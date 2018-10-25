@@ -1,15 +1,41 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, SafeAreaView, Dimensions } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { StyleSheet, View, TouchableHighlight, SafeAreaView, Dimensions } from 'react-native';
+import { connect } from 'react-redux';
+
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import { Avatar, Divider, Button } from 'react-native-elements';
 import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label } from 'native-base';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
+import { updateUser, resetUpdateUserState } from '../../actions/updateUser';
 
 var {height, width} = Dimensions.get('window');
 
-export default class EditUserInfo extends React.Component {
+const mapStateToProps = state => ({
+  auth: state.auth,
+  updateUser: state.updateUser,
+})
+
+const mapDispatchToProps = {
+  dispatchUpdateUser: (user, userId) => updateUser(user, userId),
+  dispatchResetUpdateUserState: () => resetUpdateUserState(),
+  // dispatchCreateProfile: (profile) => createProfile(profile),
+}
+
+class EditUserInfo extends React.Component {
+  constructor(props) {
+    super(props);
+    const { user } = this.props.auth;
+    const test = test;
+    this.state = {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      username: user.username,
+      description: user.description
+    }
+  }
+
   static navigationOptions = ({ navigation }) => ({
     // header: null,
     title: i18n.t('editUserInfo'),
@@ -20,6 +46,15 @@ export default class EditUserInfo extends React.Component {
     headerTransparent: false,
     headerTitleStyle: {color: 'white'},
     // headerBackTitle: ,
+    headerLeft: (
+      <TouchableHighlight onPress={() => navigation.goBack()} underlayColor={'transparent'} style={{paddingLeft: 10}}>
+        <FontAwesome
+                name='arrow-left'
+                size={24}
+                color={'white'}
+              />
+      </TouchableHighlight>
+    ),
     // headerRight: (
     //   <TouchableHighlight onPress={() => navigation.navigate('Messages')} underlayColor={'transparent'} style={{paddingRight: 15}}>
     //     {/* <FontAwesome
@@ -30,80 +65,52 @@ export default class EditUserInfo extends React.Component {
     //     <Text style={styles.editButtonText}>Edit</Text>
     //   </TouchableHighlight>
     // ),
-    headerLeft: null,
   })
 
+  confirm = () => {
+    const { username, firstName, lastName, description } = this.state;
+    const { user } = this.props.auth;
+    let newUser = { firstName, lastName, description };
+    if (username != user.username) {
+      newUser['username'] = username;
+    }
+    this.props.dispatchUpdateUser(newUser, user.id).then(() => {
+      if (!this.props.updateUser.error) {
+        this.props.navigation.goBack();
+        this.props.dispatchResetUpdateUserState();
+      }
+    });
+  }
+
   render() {
+    const { user } = this.props.auth;
+    const { username, firstName, lastName, description } = this.state;
     return (
       <Container>
         <Content padder>
           {/* <Form> */}
-            <Item>
-              <Left>
-                <Text>{i18n.t('sport')}</Text>
-              </Left>
-              <Right>
-                <Picker
-                  iosHeader={i18n.t('sport')}
-                  mode="dropdown"
-                  iosIcon={<Icon name="ios-arrow-down-outline" />}
-                  style={{ width: undefined }}
-                  placeholder={i18n.t('sportSelection')}
-                  // placeholderStyle={{ color: "#bfc6ea" }}
-                  placeholderIconColor="#007aff"
-                  selectedValue={this.state.sport}
-                  onValueChange={this.setSport.bind(this)}
-                  headerBackButtonText={i18n.t('back')}
-                >
-                {availableSports.map(sport => {
-                  return (
-                    <Picker.Item key={sport} label={i18n.t(sport)} value={sport} />
-                  )
-                })}
-                </Picker>
-              </Right>
-            </Item>
             <Item fixedLabel /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
-              <Label>{i18n.t('height')}</Label>
-              <Input textAlign={'right'} maxLength={3} autoCapitalize={'none'} autoCorrect={false} keyboardType={'number-pad'} onChangeText={(height) => this.setState({ height })} style={{ color: "#000" }}/>
+              <Label>{i18n.t('username')}</Label>
+              <Input textAlign={'right'} value={username} maxLength={20} autoCapitalize={'none'} autoCorrect={false} onChangeText={(username) => this.setState({ username })} style={{ color: "#000" }}/>
             </Item>
             <Item fixedLabel/*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
-              <Label>{i18n.t('weight')}</Label>
-              <Input textAlign={'right'} maxLength={3} autoCapitalize={'none'} autoCorrect={false} keyboardType={'number-pad'} onChangeText={(weight) => this.setState({ weight })} style={{ color: "#000" }}/>
+              <Label>{i18n.t('firstName')}</Label>
+              <Input textAlign={'right'} value={firstName} maxLength={20} autoCorrect={false} onChangeText={(firstName) => this.setState({ firstName })} style={{ color: "#000" }}/>
             </Item>
             <Item fixedLabel/*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
-              <Label>{i18n.t('number')}</Label>
-              <Input textAlign={'right'} maxLength={2} autoCapitalize={'none'} autoCorrect={false} keyboardType={'number-pad'} onChangeText={(number) => this.setState({ number })}  style={{ color: "#000" }}/>
+              <Label>{i18n.t('lastName')}</Label>
+              <Input textAlign={'right'} value={lastName} maxLength={20} autoCorrect={false} onChangeText={(lastName) => this.setState({ lastName })}  style={{ color: "#000" }}/>
             </Item>
-            <Item last>
-                <Text>{i18n.t('position')}</Text>
-              <Right>
-                <Picker
-                  iosHeader={i18n.t('position')}
-                  mode="dropdown"
-                  iosIcon={<Icon name="ios-arrow-down-outline" />}
-                  style={{ width: undefined }}
-                  placeholder={i18n.t('positionSelection')}
-                  placeholderStyle={{ color: "#bfc6ea" }}
-                  placeholderIconColor="#007aff"
-                  selectedValue={this.state.position}
-                  onValueChange={(position) => { this.setState({ position }) }}
-                  headerBackButtonText={i18n.t('back')}
-                >
-                  {positions[this.state.sport].map(position => {
-                    return (
-                      <Picker.Item key={position} label={i18n.t(position)} value={position} />
-                    )
-                  })}
-                  
-                </Picker>
-              </Right>
+            <Item textarea fixedLabel /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+              {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
+              <Label>{i18n.t('description')}</Label>
+              <Input textAlign={'right'} value={description} maxLength={50} autoCapitalize={'none'} autoCorrect={false} onChangeText={(description) => this.setState({ description })} style={{ color: "#000" }}/>
             </Item>
             <Button block onPress={this.confirm} style={{backgroundColor: colors.darkViolet1, marginTop: 30}}>
-              {this.props.apiProfiles.loading ? (
+              {this.props.updateUser.loading ? (
                 <Spinner color={'white'}/>
               ) : (
                 <Text>{i18n.t('save')}</Text>
@@ -116,6 +123,9 @@ export default class EditUserInfo extends React.Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditUserInfo);
+
 
 const styles = StyleSheet.create({
   editButtonText: {

@@ -22,6 +22,7 @@ import SettingsScreen from '../screens/Settings';
 import CounterScreen from '../screens/Counter';
 import CreateProfileScreen from '../screens/CreateProfile';
 import AuthLoadingScreen from '../screens/AuthLoading';
+import EditUserInfoScreen from '../screens/EditUserInfo';
 import Main from '../screens/Main';
 import i18n from '../lib/i18n';
 
@@ -60,7 +61,8 @@ HomeNavigator.navigationOptions = ({ navigation }) => {
 
 const ProfileNavigator = createStackNavigator({
   Profile: ProfileScreen,
-  CreateProfile: CreateProfileScreen
+  CreateProfile: CreateProfileScreen,
+  EditUserInfo: EditUserInfoScreen
   // Messages: {
   //   screen: MessagesScreen,
   //   navigationOptions: ({ navigation }) => ({

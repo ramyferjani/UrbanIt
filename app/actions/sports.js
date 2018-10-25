@@ -11,7 +11,6 @@ import * as Actions from '../constants/sports';
 //   }
 // }
 
-
 export function setAvailableSports(sports) {
   return {
     type: Actions.SET_AVAILABLE_SPORTS,

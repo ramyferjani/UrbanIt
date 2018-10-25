@@ -100,7 +100,7 @@ class CreateProfile extends React.Component {
       console.log('empty');
       return;
     }
-    this.props.dispatchCreateProfile({idUser: this.props.auth.user.id, sport, position, size: height, weight, numero: number}).then(() => {
+    this.props.dispatchCreateProfile({ idUser: this.props.auth.user.id, sport, position, size: height, weight, numero: number }).then(() => {
       this.props.navigation.goBack();
     });
   }
@@ -191,7 +191,6 @@ class CreateProfile extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateProfile);
-
 
 const styles = StyleSheet.create({
   container: {
