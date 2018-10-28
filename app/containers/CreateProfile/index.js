@@ -3,20 +3,20 @@ import { connect } from 'react-redux';
 import { StyleSheet, View, TouchableHighlight, TouchableOpacity } from 'react-native';
 // import { Input, Button } from 'react-native-elements';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label } from 'native-base';
+import { Container, Content, Item, Input, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label } from 'native-base';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
 import * as positions from '../../lib/positions';
 import { sports } from '../../lib/sports';
-import { createProfile } from '../../actions/api_profiles';
+import { createProfile } from '../../actions/createProfile';
 // import { addProfile } from '../../actions/profiles';
 
 const mapStateToProps = state => ({
   profile: state.profile,
   auth: state.auth,
   sports: state.sports,
-  apiProfiles: state.apiProfiles
+  createProfile: state.createProfile
 })
 
 const mapDispatchToProps = {
@@ -100,17 +100,19 @@ class CreateProfile extends React.Component {
       console.log('empty');
       return;
     }
-    this.props.dispatchCreateProfile({ idUser: this.props.auth.user.id, sport, position, size: height, weight, numero: number }).then(() => {
-      this.props.navigation.goBack();
-    });
+    if (!this.props.createProfile.loading) {
+      this.props.dispatchCreateProfile({ idUser: this.props.auth.user.id, sport, position, size: height, weight, numero: number }).then(() => {
+        this.props.navigation.goBack();
+      });
+    }
   }
 
   render() {
     const { availableSports } = this.props.sports;
     return (
       <Container>
-        <Content padder>
-          {/* <Form> */}
+        <Content>
+          <Form>
             <Item>
               <Left>
                 <Text>{i18n.t('sport')}</Text>
@@ -175,15 +177,14 @@ class CreateProfile extends React.Component {
                 </Picker>
               </Right>
             </Item>
-            <Button block onPress={this.confirm} style={{backgroundColor: colors.darkViolet1, marginTop: 30}}>
-              {this.props.apiProfiles.loading ? (
-                <Spinner color={'white'}/>
-              ) : (
-                <Text>{i18n.t('save')}</Text>
-              )}
-              
-            </Button>
-          {/* </Form> */}
+          </Form>
+          <Button block onPress={this.confirm} style={{backgroundColor: colors.darkViolet1, marginTop: 30, marginHorizontal: 15}}>
+            {this.props.createProfile.loading ? (
+              <Spinner color={'white'}/>
+            ) : (
+              <Text>{i18n.t('save')}</Text>
+            )}
+          </Button>
         </Content>
       </Container>
     );

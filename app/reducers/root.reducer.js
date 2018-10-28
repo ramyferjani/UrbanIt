@@ -1,14 +1,15 @@
 import { combineReducers } from 'redux';
 
-import test from './test.reducer';
-import auth from './auth.reducer';
-import nav from './nav.reducer';
-import counter from './counter.reducer';
+import test from './test';
+import auth from './auth';
+import nav from './nav';
+import counter from './counter';
 import profile from './profile';
-import sports from './sports.reducer';
-import profiles from './profiles.reducer';
-import apiProfiles from './api_profiles.reducer';
+import sports from './sports';
+import profiles from './profiles';
+import createProfile from './createProfile';
 import updateUser from './updateUser';
+import searchMatch from './searchMatch';
 
 
 export default combineReducers({
@@ -19,6 +20,7 @@ export default combineReducers({
   profile,
   sports,
   profiles,
-  apiProfiles,
-  updateUser
+  createProfile,
+  updateUser,
+  searchMatch,
 });

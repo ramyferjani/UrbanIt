@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableHighlight, SafeAreaView, Dimensions, ScrollView} from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { Icon } from 'native-base';
 import { Avatar, Divider, Button } from 'react-native-elements';
 import { material } from 'react-native-typography';
 
@@ -9,7 +10,7 @@ import { material } from 'react-native-typography';
 import colors from '../../assets/colors';
 import SportProfile from '../../components/SportProfile';
 import i18n from '../../lib/i18n';
-import { getRank } from '../../lib/rank';
+import { getRank } from '../../helpers/rank';
 import { changeProfile } from '../../actions/profile';
 
 var { height, width } = Dimensions.get('window');
@@ -29,6 +30,11 @@ class Profile extends React.Component {
     headerStyle: {
       backgroundColor: colors.darkViolet1,
     },
+    headerLeft: (
+      <TouchableHighlight onPress={() => navigation.navigate('EditUserInfo')} underlayColor={'transparent'} style={{paddingRight: 0}}>
+        <Icon type='Feather' style={{fontSize: 10}} name='log-out' style={{color: 'white'}}/>
+      </TouchableHighlight>
+    ),
     // headerBackTitle: ,
     headerRight: (
       <TouchableHighlight onPress={() => navigation.navigate('EditUserInfo')} underlayColor={'transparent'} style={{paddingRight: 15}}>
@@ -40,7 +46,6 @@ class Profile extends React.Component {
         <Text style={styles.editButtonText}>{i18n.t('edit')}</Text>
       </TouchableHighlight>
     ),
-    headerLeft: null,
   })
 
   render() {

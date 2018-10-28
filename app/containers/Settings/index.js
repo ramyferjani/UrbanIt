@@ -6,10 +6,11 @@ import { Container, Header, Content, List, Button, ListItem, Text, Icon, Left, B
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
-import { logout } from '../../actions/user_auth';
+import { logout } from '../../actions/auth';
 import { setAvailableSports, setUnavailableSports } from '../../actions/sports';
 import { changeProfile } from '../../actions/profile';
 import { setProfiles } from '../../actions/profiles';
+import { resetSearchMatchState } from '../../actions/searchMatch';
 
 
 class Settings extends React.Component {
@@ -41,6 +42,7 @@ class Settings extends React.Component {
     this.props.dispatchSetUnavailableSports([]);
     this.props.dispatchChangeProfile({});
     this.props.dispatchSetProfiles([]);
+    this.props.dispatchResetSearchMatchState();
     this.props.navigation.navigate('Auth');
   }
 
@@ -73,6 +75,7 @@ const mapDispatchToProps = {
   dispatchSetUnavailableSports: (sports) => setUnavailableSports(sports),
   dispatchChangeProfile: (profile) => changeProfile(profile),
   dispatchSetProfiles: (profiles) => setProfiles(profiles),
+  dispatchResetSearchMatchState: () => resetSearchMatchState(),
 }
 
 const mapStateToProps = state => ({

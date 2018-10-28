@@ -87,8 +87,8 @@ class EditUserInfo extends React.Component {
     const { username, firstName, lastName, description } = this.state;
     return (
       <Container>
-        <Content padder>
-          {/* <Form> */}
+        <Content>
+          <Form>
             <Item fixedLabel /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
               <Label>{i18n.t('username')}</Label>
@@ -104,12 +104,13 @@ class EditUserInfo extends React.Component {
               <Label>{i18n.t('lastName')}</Label>
               <Input textAlign={'right'} value={lastName} maxLength={20} autoCorrect={false} onChangeText={(lastName) => this.setState({ lastName })}  style={{ color: "#000" }}/>
             </Item>
-            <Item textarea fixedLabel /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
+            <Item textarea fixedLabel last /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
               {/* <Icon name='md-mail' style={{color: '#000'}} type={'Ionicons'}/> */}
               <Label>{i18n.t('description')}</Label>
               <Input textAlign={'right'} value={description} maxLength={50} autoCapitalize={'none'} autoCorrect={false} onChangeText={(description) => this.setState({ description })} style={{ color: "#000" }}/>
             </Item>
-            <Button block onPress={this.confirm} style={{backgroundColor: colors.darkViolet1, marginTop: 30}}>
+          </Form>
+          <Button block onPress={this.confirm} style={{backgroundColor: colors.darkViolet1, marginTop: 30, marginHorizontal: 15}}>
               {this.props.updateUser.loading ? (
                 <Spinner color={'white'}/>
               ) : (
@@ -117,7 +118,6 @@ class EditUserInfo extends React.Component {
               )}
               
             </Button>
-          {/* </Form> */}
         </Content>
       </Container>
     );

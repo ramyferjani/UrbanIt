@@ -45,15 +45,7 @@ export default class Match extends React.Component {
       backgroundColor: colors.darkViolet1,
     },
     // headerBackTitle: ,
-    headerRight: (
-      <TouchableHighlight onPress={() => navigation.navigate('Messages')} underlayColor={'transparent'} style={{paddingRight: 15}}>
-        <FontAwesome
-                name='send-o'
-                size={24}
-                color={'white'}
-              />
-      </TouchableHighlight>
-    ),
+    headerRight: null,
     headerLeft: null,
   })
 

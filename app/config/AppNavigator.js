@@ -11,19 +11,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import colors from '../assets/colors'
-import LoginScreen from '../screens/Login';
-import SignupScreen from '../screens/Signup';
-import MainScreen from '../screens/Main';
-import MessagesScreen from '../screens/Messages';
-import LeaderboardScreen from '../screens/Leaderboard';
-import ProfileScreen from '../screens/Profile';
-import MatchScreen from '../screens/Match';
-import SettingsScreen from '../screens/Settings';
-import CounterScreen from '../screens/Counter';
-import CreateProfileScreen from '../screens/CreateProfile';
-import AuthLoadingScreen from '../screens/AuthLoading';
-import EditUserInfoScreen from '../screens/EditUserInfo';
-import Main from '../screens/Main';
+import LoginScreen from '../containers/Login';
+import SignupScreen from '../containers/Signup';
+import MainScreen from '../containers/Main';
+import MessagesScreen from '../containers/Messages';
+import LeaderboardScreen from '../containers/Leaderboard';
+import ProfileScreen from '../containers/Profile';
+import MatchScreen from '../containers/Match';
+import SettingsScreen from '../containers/Settings';
+import CounterScreen from '../containers/Counter';
+import CreateProfileScreen from '../containers/CreateProfile';
+import AuthLoadingScreen from '../containers/AuthLoading';
+import EditUserInfoScreen from '../containers/EditUserInfo';
+import Main from '../containers/Main';
 import i18n from '../lib/i18n';
 
 // const MessagesNavigator = createStackNavigator({
@@ -134,7 +134,7 @@ const TabNavigator = createBottomTabNavigator(
     Profile: { screen: ProfileNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('profile'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
     Match: { screen: MatchNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('match'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
     Leaderboard: { screen: LeaderboardNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('leaderboard'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
-    Settings: { screen: SettingsNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('settings'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
+    // Settings: { screen: SettingsNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('settings'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
   },
   {
     // navigationOptions: ({ navigation }) => {      

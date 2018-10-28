@@ -1,4 +1,4 @@
-import * as Actions from '../constants/api_profiles';
+import * as Actions from '../constants/searchMatch';
 
 const initialState = {
   error: null,
@@ -6,17 +6,19 @@ const initialState = {
   response: null,
 }
 
-const ApiProfiles = (state = initialState, action) => {
+const searchMatch = (state = initialState, action) => {
   switch (action.type) {
-    case Actions.CREATE_PROFILE_BEGIN:
+    case Actions.SEARCH_MATCH_BEGIN:
       return { ...state, loading: true, error: null, response: null, };
-    case Actions.CREATE_PROFILE_SUCCESS:
+    case Actions.SEARCH_MATCH_SUCCESS:
       return { ...state, loading: false, error: null, response: action.response, };
-    case Actions.CREATE_PROFILE_FAILURE:
+    case Actions.SEARCH_MATCH_FAILURE:
       return { ...state, loading: false, error: action.error, };
+    case Actions.RESET_SEARCH_MATCH_STATE:
+      return initialState;
     default:
       return state;
   }
 };
 
-export default ApiProfiles;
+export default searchMatch;

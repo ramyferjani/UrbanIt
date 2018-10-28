@@ -103,7 +103,7 @@ export function register(username, email, firstName, lastName, password) {
       firstName,
       lastName,
       password,
-      description: '',
+      description: 'best player ever',
     }))
       .then(this.status)
       .then((res) => {

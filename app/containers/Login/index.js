@@ -7,7 +7,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import { material } from 'react-native-typography';
 
-import { login } from '../../actions/user_auth';
+import { login } from '../../actions/auth';
 import colors from './../../assets/colors';
 import i18n from '../../lib/i18n';
 import { setAvailableSports, setUnavailableSports } from '../../actions/sports';
@@ -40,14 +40,16 @@ class Login extends React.Component {
 
   login() {
     const { email, password } = this.state;
-    this.props.dispatchLogin(email, password).then(() => {
-      if (this.props.auth.isLoggedIn) {
-        this._setSports();
-        this._setProfile();
-        this._setProfiles(this.props.auth.user.profiles);
-        this.props.navigation.navigate('App');
-      }
-    });
+    if (!this.props.auth.loading) {
+      this.props.dispatchLogin(email, password).then(() => {
+        if (this.props.auth.isLoggedIn) {
+          this._setSports();
+          this._setProfile();
+          this._setProfiles(this.props.auth.user.profiles);
+          this.props.navigation.navigate('App');
+        }
+      });
+    }
   }
 
   _setProfiles = (profiles) => {

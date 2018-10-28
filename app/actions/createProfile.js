@@ -1,7 +1,7 @@
 import axios from 'axios';
 import querystring from 'querystring';
 
-import * as Actions from '../constants/api_profiles'
+import * as Actions from '../constants/createProfile'
 import { addProfile } from './profiles';
 import { removeAvailableSport } from './sports';
 

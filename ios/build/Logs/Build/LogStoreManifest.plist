@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>41351668-390E-45B4-B80D-EB7872726FBF</key>
+		<key>CF6C40DD-E5C9-4A21-B9D3-67D2ED2677E1</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>41351668-390E-45B4-B80D-EB7872726FBF.xcactivitylog</string>
+			<string>CF6C40DD-E5C9-4A21-B9D3-67D2ED2677E1.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -27,15 +27,15 @@
 			<key>signature</key>
 			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>562189839.77428305</real>
+			<real>562361240.47311401</real>
 			<key>timeStoppedRecording</key>
-			<real>562189857.37780702</real>
+			<real>562361244.38091898</real>
 			<key>title</key>
 			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>41351668-390E-45B4-B80D-EB7872726FBF</string>
+			<string>CF6C40DD-E5C9-4A21-B9D3-67D2ED2677E1</string>
 		</dict>
-		<key>BF42433D-C868-4F9A-AE7F-986E10607F67</key>
+		<key>DDA56BE9-3CF5-4E05-8F13-56A16F3D0B65</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -44,7 +44,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>BF42433D-C868-4F9A-AE7F-986E10607F67.xcactivitylog</string>
+			<string>DDA56BE9-3CF5-4E05-8F13-56A16F3D0B65.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -56,13 +56,13 @@
 			<key>signature</key>
 			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>562020218.18565905</real>
+			<real>562362349.76617599</real>
 			<key>timeStoppedRecording</key>
-			<real>562020222.79649198</real>
+			<real>562362355.69379699</real>
 			<key>title</key>
 			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>BF42433D-C868-4F9A-AE7F-986E10607F67</string>
+			<string>DDA56BE9-3CF5-4E05-8F13-56A16F3D0B65</string>
 		</dict>
 	</dict>
 </dict>

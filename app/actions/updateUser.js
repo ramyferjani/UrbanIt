@@ -2,7 +2,7 @@ import axios from 'axios';
 import querystring from 'querystring';
 
 import * as Actions from '../constants/updateUser';
-import { updateUserInfo } from './user_auth';
+import { updateUserInfo } from './auth';
 
 function updateUserBegin() {
   return {

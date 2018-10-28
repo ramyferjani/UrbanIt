@@ -6,7 +6,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import { Input, Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 
-import { register } from '../../actions/user_auth';
+import { register } from '../../actions/auth';
 import colors from './../../assets/colors';
 import i18n from '../../lib/i18n';
 
@@ -39,7 +39,9 @@ class Signup extends React.Component {
 
   register() {
     const { email, password, username, firstName, lastName, } = this.state;
-    this.props.dispatchSignup(username, email, firstName, lastName, password);
+    if (!this.props.auth.loading) {
+      this.props.dispatchSignup(username, email, firstName, lastName, password);
+    }
   }
 
   render() {
