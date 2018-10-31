@@ -55,7 +55,7 @@ export function removeUnavailableSports(sport) {
 
 // export function getSports() {
 //   return (dispatch) => {
-//     return axios.get('http://localhost:1344/user/signIn')
+//     return axios.get('https://urbanit.herokuapp.com/user/signIn')
 //       .then(this.status)
 //       .then((res) => {
 //         /* eslint-disable no-console */

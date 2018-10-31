@@ -68,7 +68,7 @@ export function updateUserInfo(user) {
 export function login(email, password) {
   return (dispatch) => {
     dispatch(loginBegin());
-    return axios.post('http://localhost:1344/user/signIn', querystring.stringify({
+    return axios.post('https://urbanit.herokuapp.com/user/signIn', querystring.stringify({
       email: email,
       password: password,
     }))
@@ -97,7 +97,7 @@ export function login(email, password) {
 export function register(username, email, firstName, lastName, password) {
   return (dispatch) => {
     dispatch(registerBegin());
-    return axios.post('http://localhost:1344/user', querystring.stringify({
+    return axios.post('https://urbanit.herokuapp.com/user', querystring.stringify({
       username,
       email,
       firstName,

@@ -17,7 +17,7 @@ import MainScreen from '../containers/Main';
 import MessagesScreen from '../containers/Messages';
 import LeaderboardScreen from '../containers/Leaderboard';
 import ProfileScreen from '../containers/Profile';
-import MatchScreen from '../containers/Match';
+import MatchHistoryScreen from '../containers/MatchHistory';
 import SettingsScreen from '../containers/Settings';
 import CounterScreen from '../containers/Counter';
 import CreateProfileScreen from '../containers/CreateProfile';
@@ -89,8 +89,8 @@ ProfileNavigator.navigationOptions = ({ navigation }) => {
   }
 }
 
-const MatchNavigator = createStackNavigator({
-  Match: MatchScreen,
+const MatchHistoryNavigator = createStackNavigator({
+  MatchHistory: MatchHistoryScreen,
   // Messages: {
   //   screen: MessagesScreen,
   //   navigationOptions: ({ navigation }) => ({
@@ -132,7 +132,7 @@ const TabNavigator = createBottomTabNavigator(
   {
     Home: { screen: HomeNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('home'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
     Profile: { screen: ProfileNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('profile'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
-    Match: { screen: MatchNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('match'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
+    MatchHistory: { screen: MatchHistoryNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('match'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
     Leaderboard: { screen: LeaderboardNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('leaderboard'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
     // Settings: { screen: SettingsNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('settings'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
   },

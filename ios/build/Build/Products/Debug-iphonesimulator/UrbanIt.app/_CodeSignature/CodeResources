@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AntDesign.ttf</key>
+		<data>
+		TneGhDkoD7Q01Gl8e5EScUBsgfM=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
 		68Aq7WHq9HVkrV913AAGLjl8tO4=
@@ -14,11 +18,11 @@
 		</data>
 		<key>EvilIcons.ttf</key>
 		<data>
-		QZrcvnS7qREj2zspB3XjYvIS8+U=
+		kdN36jz0dJCyVsLtCBcEp9q9rgw=
 		</data>
 		<key>Feather.ttf</key>
 		<data>
-		AiHzjp4t0CEzVCcxbr7QXuznQyM=
+		N8tVG0ETiQxSP0aeapsrKcTEm+Q=
 		</data>
 		<key>FontAwesome.ttf</key>
 		<data>
@@ -26,15 +30,15 @@
 		</data>
 		<key>FontAwesome5_Brands.ttf</key>
 		<data>
-		GeMCdg454lpfjZDWzQFk72zXT4w=
+		grn/4L28SVheCDsHNWSzXlD6Cdc=
 		</data>
 		<key>FontAwesome5_Regular.ttf</key>
 		<data>
-		wUAIWDOjir7Gt9+Z1Mysk+smYDE=
+		9g09gMIWA5vFMbtbzLdJj/uNipo=
 		</data>
 		<key>FontAwesome5_Solid.ttf</key>
 		<data>
-		xEWGSpZGlI4Nf/RJMK1zLuYUJ9g=
+		WiG+2H4jPlxeguo6ACFcVEg34SU=
 		</data>
 		<key>Foundation.ttf</key>
 		<data>
@@ -87,11 +91,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		d9v5rFjPtvBRIPVFhwyoTiP3Bws=
+		QJBiKwFKfKpwem8cyt8CkNcaCp8=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
-		D3lWcE/mG0nEHqGiIFEkD3AKK0Q=
+		mRu3+slwnNWNo3kBdw79RwPFQu0=
 		</data>
 		<key>MaterialCommunityIcons.ttf</key>
 		<data>
@@ -103,7 +107,7 @@
 		</data>
 		<key>Octicons.ttf</key>
 		<data>
-		+YreAPYbFuBieFv6gKSQafXjk7M=
+		o/QP7s8JqAqYbxLVfGRtK0Wa+so=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -152,6 +156,17 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AntDesign.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TneGhDkoD7Q01Gl8e5EScUBsgfM=
+			</data>
+			<key>hash2</key>
+			<data>
+			eVXKFBJ7MEEsEU6xPP1wK12rJl/rGIDRaV1zyqgkzeE=
+			</data>
+		</dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
@@ -178,22 +193,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QZrcvnS7qREj2zspB3XjYvIS8+U=
+			kdN36jz0dJCyVsLtCBcEp9q9rgw=
 			</data>
 			<key>hash2</key>
 			<data>
-			J9GohnZmGjoiaVdpUtb3ANoFZEvAMFUR3iO3D3HKVDY=
+			pcrrTTlcXjLx1aMKyzgq68Zk8brf0UkxmQfyIV5OPiY=
 			</data>
 		</dict>
 		<key>Feather.ttf</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AiHzjp4t0CEzVCcxbr7QXuznQyM=
+			N8tVG0ETiQxSP0aeapsrKcTEm+Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			sse5lKY8HPl6gBWzGq4njD9mmOqvSOduEWdc+dNdrHY=
+			vJZj1K7YcJfMyjc62U/QjeJKxKNRAOPfO30oFCyQCUo=
 			</data>
 		</dict>
 		<key>FontAwesome.ttf</key>
@@ -211,33 +226,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GeMCdg454lpfjZDWzQFk72zXT4w=
+			grn/4L28SVheCDsHNWSzXlD6Cdc=
 			</data>
 			<key>hash2</key>
 			<data>
-			NlFjtwbIzvX8bGmgoN38QLXHJtWpVfwqLOxQ3qzXeSg=
+			VmDKN8uFHpEU+IgABQpNa1v4cdSL/n5ta6QzLYIgJV8=
 			</data>
 		</dict>
 		<key>FontAwesome5_Regular.ttf</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wUAIWDOjir7Gt9+Z1Mysk+smYDE=
+			9g09gMIWA5vFMbtbzLdJj/uNipo=
 			</data>
 			<key>hash2</key>
 			<data>
-			rlr07d3JsGDC71CcsJ6+GkaD5oljOBFDRoDfMZ/qUQc=
+			E8IiY5q9YR0GZhnBZcWPWWs63Q1mSxsyvrfH6Cya8hE=
 			</data>
 		</dict>
 		<key>FontAwesome5_Solid.ttf</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xEWGSpZGlI4Nf/RJMK1zLuYUJ9g=
+			WiG+2H4jPlxeguo6ACFcVEg34SU=
 			</data>
 			<key>hash2</key>
 			<data>
-			UvbXegBXJ/S5IFERnnbplWt+5xvywiOFgZr7GobSiqQ=
+			B3erbrnUcU8/Dw3dcYQ2/iIhqayo0EN1oVC1evRaAhU=
 			</data>
 		</dict>
 		<key>Foundation.ttf</key>
@@ -367,11 +382,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			D3lWcE/mG0nEHqGiIFEkD3AKK0Q=
+			mRu3+slwnNWNo3kBdw79RwPFQu0=
 			</data>
 			<key>hash2</key>
 			<data>
-			u0dnmwuuuEgbf1HGitM65aUmc2y1CxcXzGD/a2X5CKM=
+			INFzvLYFHQlzvgymqi+08npbKQ2AEGyyxWfI/cdyxxE=
 			</data>
 		</dict>
 		<key>MaterialCommunityIcons.ttf</key>
@@ -400,11 +415,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+YreAPYbFuBieFv6gKSQafXjk7M=
+			o/QP7s8JqAqYbxLVfGRtK0Wa+so=
 			</data>
 			<key>hash2</key>
 			<data>
-			NC9CWcIUkNdDyFv9XLIgM5voHcU7RU+sU2mnqmpBMI4=
+			8KI41G1nSeYBwS8g+PwDIB8Ze5/jR75MLJRP/FxLYDU=
 			</data>
 		</dict>
 		<key>PlugIns/UrbanItTests.xctest.dSYM/Contents/Info.plist</key>

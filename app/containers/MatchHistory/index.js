@@ -34,7 +34,7 @@ const matches = [
   },
 ]
 
-export default class Match extends React.Component {
+export default class MatchHistory extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     // header: null,
     title: i18n.t('match'),

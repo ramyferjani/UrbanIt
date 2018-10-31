@@ -43,7 +43,7 @@ function status(response) {
 export function searchMatch(profileId) {
   return (dispatch) => {
     dispatch(searchMatchBegin());
-    return axios.post(`http://localhost:1344/profile/jointeam`, querystring.stringify({
+    return axios.post(`https://urbanit.herokuapp.com/profile/jointeam`, querystring.stringify({
       idProfile: profileId,
     }))
       .then(this.status)

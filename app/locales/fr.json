@@ -45,5 +45,9 @@
   "edit": "Éditer",
   "editUserInfo": "Éditer vos infos",
   "description": "Description",
-  "play": "Jouer"
+  "play": "Jouer",
+  "searchingPlayers": "Recherche d'autres joueurs",
+  "elo": "Elo",
+  "ranking": "Classement",
+  "matchPlayed": "Matchs joués"
 }

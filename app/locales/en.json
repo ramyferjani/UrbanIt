@@ -45,5 +45,9 @@
   "edit": "Edit",
   "editUserInfo": "Edit your infos",
   "description": "Description",
-  "play": "Play"
+  "play": "Play",
+  "searchingPlayers": "Searching for other players",
+  "elo": "Elo",
+  "ranking": "Ranking",
+  "matchPlayed": "Match played"
 }

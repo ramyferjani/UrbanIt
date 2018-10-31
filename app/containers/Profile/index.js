@@ -11,17 +11,37 @@ import colors from '../../assets/colors';
 import SportProfile from '../../components/SportProfile';
 import i18n from '../../lib/i18n';
 import { getRank } from '../../helpers/rank';
+import { logout } from '../../actions/auth';
+import { setAvailableSports, setUnavailableSports } from '../../actions/sports';
 import { changeProfile } from '../../actions/profile';
+import { setProfiles } from '../../actions/profiles';
+import { resetSearchMatchState } from '../../actions/searchMatch';
+// import { }
 
 var { height, width } = Dimensions.get('window');
 
 class Profile extends React.Component {
 
+  componentDidMount () {
+    this.props.navigation.setParams({ handleLogout: this.logout.bind(this) })
+  }
+
   changeProfile = (profile) => {
     this.props.dispatchChangeProfile(profile);
   }
 
+  logout = () => {
+    this.props.dispatchLogout();
+    this.props.dispatchSetAvailableSports([]);
+    this.props.dispatchSetUnavailableSports([]);
+    this.props.dispatchChangeProfile({});
+    this.props.dispatchSetProfiles([]);
+    this.props.dispatchResetSearchMatchState();
+    this.props.navigation.navigate('Auth');
+  }
+
   static navigationOptions = ({ navigation }) => ({
+    
     // header: null,
     title: i18n.t('profile'),
     gesturesEnabled: true,
@@ -31,8 +51,8 @@ class Profile extends React.Component {
       backgroundColor: colors.darkViolet1,
     },
     headerLeft: (
-      <TouchableHighlight onPress={() => navigation.navigate('EditUserInfo')} underlayColor={'transparent'} style={{paddingRight: 0}}>
-        <Icon type='Feather' style={{fontSize: 10}} name='log-out' style={{color: 'white'}}/>
+      <TouchableHighlight onPress={navigation.getParam('handleLogout')} underlayColor={'transparent'} style={{paddingLeft: 15}}>
+        <Text style={styles.editButtonText}>{i18n.t('logout')}</Text>
       </TouchableHighlight>
     ),
     // headerBackTitle: ,
@@ -117,6 +137,11 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   dispatchChangeProfile: (profile) => changeProfile(profile),
+  dispatchLogout: () => logout(),
+  dispatchSetAvailableSports: (sports) => setAvailableSports(sports),
+  dispatchSetUnavailableSports: (sports) => setUnavailableSports(sports),
+  dispatchSetProfiles: (profiles) => setProfiles(profiles),
+  dispatchResetSearchMatchState: () => resetSearchMatchState(),
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

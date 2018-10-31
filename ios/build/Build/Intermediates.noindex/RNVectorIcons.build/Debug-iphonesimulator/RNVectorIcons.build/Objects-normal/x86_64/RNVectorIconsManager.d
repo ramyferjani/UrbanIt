@@ -18,4 +18,5 @@ dependencies: \
   /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
   /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
   /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFont.h

@@ -96,7 +96,7 @@ class Main extends React.Component {
             <CardItem>
               <Left>
                 <Icon type='MaterialCommunityIcons' name='chart-line-variant'/>
-                <Text>Elo</Text>
+                <Text>{i18n.t('elo')}</Text>
               </Left>
               <Right>
                 <Text>{profile.ranking}</Text>
@@ -105,7 +105,7 @@ class Main extends React.Component {
             <CardItem>
               <Left>
                 <RankIcon elo={profile.ranking}/>
-                <Text>Rank 1</Text>
+                <Text>{i18n.t('rank')}</Text>
               </Left>
               <Right>
                 <Text>{getRank(profile.ranking)}</Text>
@@ -114,7 +114,7 @@ class Main extends React.Component {
             <CardItem>
               <Left>
                 <Icon type='MaterialCommunityIcons' name='chart-line-variant'/>
-                <Text>Match played</Text>
+                <Text>{i18n.t('matchPlayed')}</Text>
               </Left>
               <Right>
                 <Text>100</Text>
@@ -123,7 +123,7 @@ class Main extends React.Component {
             <CardItem>
               <Left>
                 <Icon type='MaterialCommunityIcons' name='format-list-numbers'/>
-                <Text>Ranking</Text>
+                <Text>{i18n.t('ranking')}</Text>
               </Left>
               <Right>
                 <Text>100</Text>
@@ -131,7 +131,12 @@ class Main extends React.Component {
             </CardItem>
           </Card>
           {profile.team && !profile.team.isFill ? (
-            <Text>Waiting other players</Text>
+            <Content>
+              <Text>{i18n.t('searchingPlayers')}</Text>
+              <Button large block style={{ backgroundColor: colors.darkViolet1, marginTop: 15}}>
+                  <Spinner color={'white'}/>
+              </Button>
+            </Content>
           ) : (
             this.props.searchMatch.loading ? (
               <Button large block style={{ backgroundColor: colors.darkViolet1, marginTop: 15}}>

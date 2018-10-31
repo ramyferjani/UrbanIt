@@ -43,7 +43,7 @@ function status(response) {
 export function updateUser(user, userId) {
   return (dispatch) => {
     dispatch(updateUserBegin());
-    return axios.put(`http://localhost:1344/user/${userId}`, querystring.stringify(user))
+    return axios.put(`https://urbanit.herokuapp.com/user/${userId}`, querystring.stringify(user))
       .then(this.status)
       .then((res) => {
         /* eslint-disable no-console */
@@ -69,7 +69,7 @@ export function updateUser(user, userId) {
 
 // export function getSports() {
 //   return (dispatch) => {
-//     return axios.get('http://localhost:1344/user/signIn')
+//     return axios.get('https://urbanit.herokuapp.com/user/signIn')
 //       .then(this.status)
 //       .then((res) => {
 //         /* eslint-disable no-console */

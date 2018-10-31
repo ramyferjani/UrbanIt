@@ -28,7 +28,7 @@ function createProfileFailure(error) {
 export function createProfile(profile) {
   return (dispatch) => {
     dispatch(createProfileBegin());
-    return axios.post('http://localhost:1344/profile', querystring.stringify(profile))
+    return axios.post('https://urbanit.herokuapp.com/profile', querystring.stringify(profile))
       .then(this.status)
       .then((res) => {
         /* eslint-disable no-console */
