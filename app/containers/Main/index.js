@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, View, StatusBar, TouchableHighlight, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, View, StatusBar, TouchableHighlight, Dimensions, ScrollView, RefreshControl } from 'react-native';
 import { Container, Content, Item, Input, Card, CardItem, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -10,12 +10,14 @@ import Foundation from 'react-native-vector-icons/Foundation';
 import { material } from 'react-native-typography';
 
 import colors from '../../assets/colors';
-import PlayerIcon from '../../components/PlayerIcon';
-import RankIcon from '../../components/RankIcon';
 import i18n from '../../lib/i18n';
-import { getRank } from '../../helpers/rank';
 import { TEST_ACTION } from '../../lib/constants';
 import { searchMatch, resetSearchMatchState } from '../../actions/searchMatch';
+import EmptyProfiles from '../../components/EmptyProfiles';
+import NoneProfilesSelected from '../../components/NoneProfilesSelected';
+import ProfileStats from '../../components/ProfileStats';
+import MatchLobby from '../../components/MatchLobby';
+import { refreshProfile } from '../../actions/refreshProfile';
 
 var {height, width} = Dimensions.get('window');
 
@@ -33,6 +35,10 @@ const team = [
 ]
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   static navigationOptions = ({ navigation }) => ({
     // header: null,
     title: i18n.t('home'),
@@ -45,7 +51,7 @@ class Main extends React.Component {
     headerTitleStyle: {color: 'white'},
     // headerBackTitle: ,
     headerRight: (
-      <TouchableHighlight onPress={() => navigation.navigate('Messages')} underlayColor={'transparent'} style={{paddingRight: 15}}>
+      <TouchableHighlight onPress={() => navigation.navigate('Chat')} underlayColor={'transparent'} style={{paddingRight: 15}}>
         <FontAwesome
                 name='send-o'
                 size={24}
@@ -86,68 +92,50 @@ class Main extends React.Component {
   //   return playersIcons;
   // }
 
+  refreshProfile = () => {
+    const { profile, profiles } = this.props
+    if (profiles.length > 0 && Object.keys(profile).length > 0) {
+      this.props.dispatchRefreshProfile(profile.id);
+    }
+  }
+
 
   render() {
-    const { profile } = this.props
+    const { profile, navigation, profiles, refreshProfile } = this.props;
     return (
       <Container>
-        <Content padder>
-          <Card>
-            <CardItem>
-              <Left>
-                <Icon type='MaterialCommunityIcons' name='chart-line-variant'/>
-                <Text>{i18n.t('elo')}</Text>
-              </Left>
-              <Right>
-                <Text>{profile.ranking}</Text>
-              </Right>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <RankIcon elo={profile.ranking}/>
-                <Text>{i18n.t('rank')}</Text>
-              </Left>
-              <Right>
-                <Text>{getRank(profile.ranking)}</Text>
-              </Right>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Icon type='MaterialCommunityIcons' name='chart-line-variant'/>
-                <Text>{i18n.t('matchPlayed')}</Text>
-              </Left>
-              <Right>
-                <Text>100</Text>
-              </Right>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Icon type='MaterialCommunityIcons' name='format-list-numbers'/>
-                <Text>{i18n.t('ranking')}</Text>
-              </Left>
-              <Right>
-                <Text>100</Text>
-              </Right>
-            </CardItem>
-          </Card>
-          {profile.team && !profile.team.isFill ? (
+        <Content padder refreshControl={
+                        <RefreshControl refreshing={refreshProfile.loading}
+                            onRefresh={this.refreshProfile.bind(this)}
+                            />
+                    }>
+          {profiles.length === 0 ? (
+            <EmptyProfiles/>
+          ) : Object.keys(profile).length === 0 && profile.constructor === Object ? (<NoneProfilesSelected/>) : 
+          profile.teams && profile.teams.find(x => x.isOld === false) && profile.teams.find(x => x.isOld === false).isFill === true ? 
+          <MatchLobby/> : (
             <Content>
-              <Text>{i18n.t('searchingPlayers')}</Text>
-              <Button large block style={{ backgroundColor: colors.darkViolet1, marginTop: 15}}>
-                  <Spinner color={'white'}/>
-              </Button>
+              <ProfileStats/>
+              {profile.teams && profile.teams.find(x => x.isOld === false) && profile.teams.find(x => x.isOld === false).isFill === false ? (
+                <Content>
+                  <Text style={{ alignSelf:'center', marginTop: 30 }}>{i18n.t('searchingPlayers')}</Text>
+                  <Button large block style={{ backgroundColor: colors.darkViolet1, marginTop: 15}}>
+                      <Spinner color={'white'}/>
+                  </Button>
+                </Content>
+              ) : (
+                this.props.searchMatch.loading ? (
+                  <Button large block style={{ backgroundColor: colors.darkViolet1, marginTop: 15}}>
+                    <Spinner color={'white'}/>
+                  </Button>
+                ) : (
+                  <Button large block style={{ backgroundColor: colors.darkViolet1, marginTop: 15}} onPress={() => this.searchMatch(profile.id)}>
+                    <Icon name='play' type='Foundation'/>
+                    <Text style={{color: 'white'}}>{i18n.t('play')}</Text>
+                  </Button>
+                )
+              )}
             </Content>
-          ) : (
-            this.props.searchMatch.loading ? (
-              <Button large block style={{ backgroundColor: colors.darkViolet1, marginTop: 15}}>
-                <Spinner color={'white'}/>
-              </Button>
-            ) : (
-              <Button large block style={{ backgroundColor: colors.darkViolet1, marginTop: 15}} onPress={() => this.searchMatch(profile.id)}>
-                <Icon name='play' type='Foundation'/>
-                <Text style={{color: 'white'}}>{i18n.t('play')}</Text>
-              </Button>
-            )
           )}
         </Content>
       </Container>
@@ -159,12 +147,15 @@ function mapStateToProps(state) {
   return {
     profile: state.profile,
     searchMatch: state.searchMatch,
+    profiles: state.profiles,
+    refreshProfile: state.refreshProfile
   };
 }
 
 const mapDispatchToProps = {
   dispatchSearchMatch: (profileId) => searchMatch(profileId),
   dispatchResetSearchMatchState: () => resetSearchMatchState(),
+  dispatchRefreshProfile: (profileId) => refreshProfile(profileId),
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

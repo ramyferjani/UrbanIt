@@ -10,6 +10,7 @@ import profiles from './profiles';
 import createProfile from './createProfile';
 import updateUser from './updateUser';
 import searchMatch from './searchMatch';
+import refreshProfile from './refreshProfile';
 
 
 export default combineReducers({
@@ -23,4 +24,5 @@ export default combineReducers({
   createProfile,
   updateUser,
   searchMatch,
+  refreshProfile
 });

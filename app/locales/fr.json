@@ -49,5 +49,10 @@
   "searchingPlayers": "Recherche d'autres joueurs",
   "elo": "Elo",
   "ranking": "Classement",
-  "matchPlayed": "Matchs joués"
+  "matchPlayed": "Matchs joués",
+  "emptyProfiles": "Veuillez créer un profile avant de jouer",
+  "noneProfilesSelected": "Veuillez choisir un profile avant de jouer",
+  "goToProfile": "Aller sur mon profil",
+  "results": "Resultats",
+  "chat": "Chat"
 }

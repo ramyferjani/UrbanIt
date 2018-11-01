@@ -78,7 +78,7 @@ class Profile extends React.Component {
               <Avatar
                 rounded
                 size={(width - 30 - 20 - 20) / 2}
-                source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"}}
+                source={require('../../assets/images/avatar.png')}
                 onPress={() => console.log("Works!")}
                 activeOpacity={0.7}
               />
@@ -111,10 +111,10 @@ class Profile extends React.Component {
           {/* <SportProfile isEnable={this.props.sport.name == 'football'} sportTitle={'Football'} sportRank={10} onPress={this.football.bind(this)}></SportProfile>
           <SportProfile isEnable={this.props.sport.name == 'basketball'} sportTitle={'Basket'} sportRank={7} onPress={this.basketball.bind(this)}></SportProfile> */}
           <TouchableHighlight disabled={this.props.sports.availableSports.length < 1} style={{height: 50, margin: 15, backgroundColor: colors.darkViolet1, borderRadius: 5, alignItems: 'center'}} underlayColor={colors.darkViolet1} onPress={() => this.props.navigation.navigate('CreateProfile')}>
-          <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 10, alignItems: 'center'}}>
-            <FontAwesome name='plus' size={20} color='white'/>
+            <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 10, alignItems: 'center'}}>
+              <FontAwesome name='plus' size={20} color='white'/>
             {/* <Text style={{color: 'white', fontSize: 20}}>   {SportLocales.en.addSport}</Text> */}
-          </View>
+            </View>
           </TouchableHighlight>
         </View>
         {/* <Text>Open up App.js to start working on your app!</Text>

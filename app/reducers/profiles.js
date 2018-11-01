@@ -1,4 +1,4 @@
-import { SET_PROFILES, ADD_PROFILE  } from '../constants/profiles';
+import { SET_PROFILES, ADD_PROFILE } from '../constants/profiles';
 
 const initialState = [];
 

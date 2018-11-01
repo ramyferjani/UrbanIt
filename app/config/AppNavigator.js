@@ -23,6 +23,7 @@ import CounterScreen from '../containers/Counter';
 import CreateProfileScreen from '../containers/CreateProfile';
 import AuthLoadingScreen from '../containers/AuthLoading';
 import EditUserInfoScreen from '../containers/EditUserInfo';
+import ChatScreen from '../containers/Chat';
 import Main from '../containers/Main';
 import i18n from '../lib/i18n';
 
@@ -35,6 +36,12 @@ const HomeNavigator = createStackNavigator({
   Home: MainScreen,
   Messages: {
     screen: MessagesScreen,
+    navigationOptions: ({ navigation }) => ({
+      tabBarVisible: false,
+    })
+  },
+  Chat: {
+    screen: ChatScreen,
     navigationOptions: ({ navigation }) => ({
       tabBarVisible: false,
     })
@@ -62,7 +69,7 @@ HomeNavigator.navigationOptions = ({ navigation }) => {
 const ProfileNavigator = createStackNavigator({
   Profile: ProfileScreen,
   CreateProfile: CreateProfileScreen,
-  EditUserInfo: EditUserInfoScreen
+  EditUserInfo: EditUserInfoScreen,
   // Messages: {
   //   screen: MessagesScreen,
   //   navigationOptions: ({ navigation }) => ({
@@ -130,10 +137,10 @@ const SettingsNavigator = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator(
   {
-    Home: { screen: HomeNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('home'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
-    Profile: { screen: ProfileNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('profile'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
-    MatchHistory: { screen: MatchHistoryNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('match'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
-    Leaderboard: { screen: LeaderboardNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('leaderboard'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
+    Home: { screen: HomeNavigator, navigationOptions: { tabBarOptions: { activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', }, title: i18n.t('home') } },
+    Profile: { screen: ProfileNavigator, navigationOptions: { tabBarOptions: { activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', }, title: i18n.t('profile') } },
+    MatchHistory: { screen: MatchHistoryNavigator, navigationOptions: { tabBarOptions: { activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', }, title: i18n.t('results') } },
+    Leaderboard: { screen: LeaderboardNavigator, navigationOptions: { tabBarOptions: { activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', }, title: i18n.t('leaderboard') } },
     // Settings: { screen: SettingsNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('settings'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
   },
   {
@@ -152,16 +159,16 @@ const TabNavigator = createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === i18n.t('home')) {
+        if (routeName === 'Home') {
           iconName = `home${focused ? '' : '-outline'}`;
-        } else if (routeName === i18n.t('match')) {
+        } else if (routeName === 'MatchHistory') {
           iconName = `play-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === i18n.t('settings')) {
+        } else if (routeName === 'Settings') {
           iconName = `settings${focused ? '' : '-outline'}`;
           // return <Ionicons name={iconName} size={25} color={tintColor} />;
-        } else if (routeName === i18n.t('leaderboard')) {
+        } else if (routeName === 'Leaderboard') {
           iconName = `account-multiple-plus${focused ? '' : '-outline'}`;
-        } else if (routeName === i18n.t('profile')) {
+        } else if (routeName === 'Profile') {
           iconName = `account${focused ? '' : '-outline'}`;
         }
         // You can return any component that you like here! We usually use an

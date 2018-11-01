@@ -35,35 +35,6 @@
 			<key>uniqueIdentifier</key>
 			<string>194B4777-561F-4992-B7F0-36E36F4837D7</string>
 		</dict>
-		<key>5898177C-5064-435B-95D7-FD637468B2BB</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
-			<key>fileName</key>
-			<string>5898177C-5064-435B-95D7-FD637468B2BB.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>E</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>UrbanIt project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>UrbanIt</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>562685366.885216</real>
-			<key>timeStoppedRecording</key>
-			<real>562685374.31874502</real>
-			<key>title</key>
-			<string>Building project UrbanIt with scheme UrbanIt and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>5898177C-5064-435B-95D7-FD637468B2BB</string>
-		</dict>
 	</dict>
 </dict>
 </plist>
