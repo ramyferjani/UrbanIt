@@ -14,6 +14,7 @@ import { setAvailableSports, setUnavailableSports } from '../../actions/sports';
 import { sports } from '../../lib/sports';
 import { changeProfile } from '../../actions/profile';
 import { setProfiles } from '../../actions/profiles';
+import { refreshProfile } from '../../actions/refreshProfile';
 
 class Login extends React.Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class Login extends React.Component {
           this._setSports();
           this._setProfile();
           this._setProfiles(this.props.auth.user.profiles);
+          
           this.props.navigation.navigate('App');
         }
       });
@@ -62,6 +64,7 @@ class Login extends React.Component {
     if (profiles.length > 0) {
       this.props.dispatchChangeProfile(profiles[0]);
     }
+    this.props.dispatchRefreshProfile(profiles[0].id);
   }
 
   _setSports = () => {

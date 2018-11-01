@@ -33,7 +33,7 @@ export function createProfile(profile) {
       .then((res) => {
         /* eslint-disable no-console */
         console.log(res);
-        delete (res.data.data.user);
+        // delete (res.data.data.user);
         dispatch(createProfileSuccess(res.data.data));
         dispatch(addProfile(res.data.data));
         dispatch(removeAvailableSport(res.data.data.sport.sport));

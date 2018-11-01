@@ -104,7 +104,7 @@ class Main extends React.Component {
     const { profile, navigation, profiles, refreshProfile } = this.props;
     return (
       <Container>
-        <Content padder refreshControl={
+        <Content padder={profile.teams.find(x => x.isOld === false).match.isFill === false ? true : false} refreshControl={
                         <RefreshControl refreshing={refreshProfile.loading}
                             onRefresh={this.refreshProfile.bind(this)}
                             />
@@ -116,7 +116,7 @@ class Main extends React.Component {
           <MatchLobby/> : (
             <Content>
               <ProfileStats/>
-              {profile.teams && profile.teams.find(x => x.isOld === false) && profile.teams.find(x => x.isOld === false).isFill === false ? (
+              {profile.teams && profile.teams.find(x => x.isOld === false) && (profile.teams.find(x => x.isOld === false).isFill === false || profile.teams.find(x => x.isOld === false).match.isFill === false) ? (
                 <Content>
                   <Text style={{ alignSelf:'center', marginTop: 30 }}>{i18n.t('searchingPlayers')}</Text>
                   <Button large block style={{ backgroundColor: colors.darkViolet1, marginTop: 15}}>

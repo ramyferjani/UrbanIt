@@ -34,7 +34,7 @@ export function refreshProfile(profileId) {
       .then((res) => {
         /* eslint-disable no-console */
         console.log(res);
-        delete (res.data.data.user);
+        // delete (res.data.data.user.password);
         let profiles = getState().profiles;
         profiles = profiles.filter(function(profile) {
           return profile.id != profileId;

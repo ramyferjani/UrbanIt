@@ -53,5 +53,6 @@
   "emptyProfiles": "Please create a profile before playing",
   "noneProfilesSelected": "Please select a profile before playing",
   "goToProfile": "Go to profile",
-  "results": "Results"
+  "results": "Results",
+  "chat": "Chat"
 }
