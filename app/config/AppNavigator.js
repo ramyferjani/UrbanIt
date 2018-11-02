@@ -10,6 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+import i18n from '../lib/i18n';
 import colors from '../assets/colors'
 import LoginScreen from '../containers/Login';
 import SignupScreen from '../containers/Signup';
@@ -24,8 +25,7 @@ import CreateProfileScreen from '../containers/CreateProfile';
 import AuthLoadingScreen from '../containers/AuthLoading';
 import EditUserInfoScreen from '../containers/EditUserInfo';
 import ChatScreen from '../containers/Chat';
-import Main from '../containers/Main';
-import i18n from '../lib/i18n';
+import FillScoresScreen from '../containers/FillScores';
 
 // const MessagesNavigator = createStackNavigator({
 //   Messages: { screen: MessagesScreen,
@@ -46,6 +46,7 @@ const HomeNavigator = createStackNavigator({
       tabBarVisible: false,
     })
   },
+  FillScores: FillScoresScreen,
   },
   {
   headerMode: 'screen',

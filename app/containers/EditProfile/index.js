@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, SafeAreaView, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, SafeAreaView, Dimensions, StatusBar } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 // import { Avatar, Divider, Button } from 'react-native-elements';
-import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label } from 'native-base';
+import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label, Toast } from 'native-base';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
@@ -36,6 +36,10 @@ export default class EditProfile extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
         <View style={styles.avatarCardContainer}>
           <View style={styles.avatarCard}>
             <View style={styles.avatarContainer}>

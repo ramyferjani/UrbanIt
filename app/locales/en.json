@@ -54,5 +54,13 @@
   "noneProfilesSelected": "Please select a profile before playing",
   "goToProfile": "Go to profile",
   "results": "Results",
-  "chat": "Chat"
+  "chat": "Chat",
+  "fillScores": "Fill scores",
+  "score": "Score",
+  "send": "Send",
+  "waitingTeamCaptain": "Waiting your team captain to fill the scores",
+  "waitingOtherCaptain": "Waiting the opponent to fill the scores",
+  "error": "An error occured",
+  "savedSuccessfully": "Saved successfully",
+  "scoresError": "Scores are not the same, we will contact you"
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, TouchableHighlight, SafeAreaView, Dimensions, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, SafeAreaView, Dimensions, ScrollView, StatusBar} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Icon } from 'native-base';
 import { Avatar, Divider, Button } from 'react-native-elements';
@@ -71,55 +71,59 @@ class Profile extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={styles.avatarCardContainer}>
-          <View style={styles.avatarCard}>
-            <View style={styles.avatarContainer}>
-              <Avatar
-                rounded
-                size={(width - 30 - 20 - 20) / 2}
-                source={require('../../assets/images/avatar.png')}
-                onPress={() => console.log("Works!")}
-                activeOpacity={0.7}
-              />
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
+        <ScrollView>
+          <View style={styles.avatarCardContainer}>
+            <View style={styles.avatarCard}>
+              <View style={styles.avatarContainer}>
+                <Avatar
+                  rounded
+                  size={(width - 30 - 20 - 20) / 2}
+                  source={require('../../assets/images/avatar.png')}
+                  onPress={() => console.log("Works!")}
+                  activeOpacity={0.7}
+                />
+              </View>
+              <View style={styles.nameContainer}>
+                <Text style={material.headlineWhite}>{this.props.auth.user.firstName} {this.props.auth.user.lastName}</Text>
+              </View>
             </View>
-            <View style={styles.nameContainer}>
-              <Text style={material.headlineWhite}>{this.props.auth.user.firstName} {this.props.auth.user.lastName}</Text>
-            </View>
+            {/* <Divider style={{ backgroundColor: colors.darkGray1, marginHorizontal: 20 }} /> */}
+            {/* <View style={styles.avatarButtonContainer}>
+              <View style={styles.buttonContainer}>
+
+              </View>
+              <View style={styles.buttonContainer}>
+                <Button title='Editer mon profile'/>
+              </View>
+
+            </View> */}
           </View>
-          {/* <Divider style={{ backgroundColor: colors.darkGray1, marginHorizontal: 20 }} /> */}
-          {/* <View style={styles.avatarButtonContainer}>
-            <View style={styles.buttonContainer}>
 
-            </View>
-            <View style={styles.buttonContainer}>
-              <Button title='Editer mon profile'/>
+          <View>
+            <View style={styles.chooseTextContainer}>
+              <Text style={styles.chooseText}>{i18n.t('sportSelection')}</Text>
             </View>
 
-          </View> */}
-        </View>
-
-        <View>
-          <View style={styles.chooseTextContainer}>
-            <Text style={styles.chooseText}>{i18n.t('sportSelection')}</Text>
+            {this.props.profiles.map(profile => (
+            // {profiles.map(profile => (
+              <SportProfile key={profile.id} isEnable={this.props.profile.sport && this.props.profile.sport.sport == profile.sport.sport} sportTitle={profile.sport.sport} sportRank={getRank(profile.ranking)} onPress={() => this.changeProfile(profile)}></SportProfile>
+            ))};
+            {/* <SportProfile isEnable={this.props.sport.name == 'football'} sportTitle={'Football'} sportRank={10} onPress={this.football.bind(this)}></SportProfile>
+            <SportProfile isEnable={this.props.sport.name == 'basketball'} sportTitle={'Basket'} sportRank={7} onPress={this.basketball.bind(this)}></SportProfile> */}
+            <TouchableHighlight disabled={this.props.sports.availableSports.length < 1} style={{height: 50, margin: 15, backgroundColor: colors.darkViolet1, borderRadius: 5, alignItems: 'center'}} underlayColor={colors.darkViolet1} onPress={() => this.props.navigation.navigate('CreateProfile')}>
+              <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 10, alignItems: 'center'}}>
+                <FontAwesome name='plus' size={20} color='white'/>
+              {/* <Text style={{color: 'white', fontSize: 20}}>   {SportLocales.en.addSport}</Text> */}
+              </View>
+            </TouchableHighlight>
           </View>
-
-          {this.props.profiles.map(profile => (
-          // {profiles.map(profile => (
-            <SportProfile key={profile.id} isEnable={this.props.profile.sport && this.props.profile.sport.sport == profile.sport.sport} sportTitle={profile.sport.sport} sportRank={getRank(profile.ranking)} onPress={() => this.changeProfile(profile)}></SportProfile>
-          ))};
-          {/* <SportProfile isEnable={this.props.sport.name == 'football'} sportTitle={'Football'} sportRank={10} onPress={this.football.bind(this)}></SportProfile>
-          <SportProfile isEnable={this.props.sport.name == 'basketball'} sportTitle={'Basket'} sportRank={7} onPress={this.basketball.bind(this)}></SportProfile> */}
-          <TouchableHighlight disabled={this.props.sports.availableSports.length < 1} style={{height: 50, margin: 15, backgroundColor: colors.darkViolet1, borderRadius: 5, alignItems: 'center'}} underlayColor={colors.darkViolet1} onPress={() => this.props.navigation.navigate('CreateProfile')}>
-            <View style={{flex: 1, flexDirection: 'row', paddingHorizontal: 10, alignItems: 'center'}}>
-              <FontAwesome name='plus' size={20} color='white'/>
-            {/* <Text style={{color: 'white', fontSize: 20}}>   {SportLocales.en.addSport}</Text> */}
-            </View>
-          </TouchableHighlight>
-        </View>
-        {/* <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make wills automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text> */}
+          {/* <Text>Open up App.js to start working on your app!</Text>
+          <Text>Changes you make wills automatically reload.</Text>
+          <Text>Shake your phone to open the developer menu.</Text> */}
         </ScrollView>
       </SafeAreaView>
     );

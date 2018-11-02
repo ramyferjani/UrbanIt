@@ -1,11 +1,12 @@
 import React from 'react';
 // import { connect } from 'react-redux';
 import { Content, Icon, Button, Text } from 'native-base';
+import { withNavigation } from 'react-navigation';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
 
-export default class EmptyProfiles extends React.Component {
+class EmptyProfiles extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -22,5 +23,7 @@ export default class EmptyProfiles extends React.Component {
     )
   }
 }
+
+export default withNavigation(EmptyProfiles);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Main);

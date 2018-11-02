@@ -16,44 +16,46 @@ class ProfileStats extends React.Component {
   render() {
     const { profile, navigation } = this.props
     return (
-      <Card>
-        <CardItem>
-          <Left>
-            <Icon type='MaterialCommunityIcons' name='chart-line-variant'/>
-            <Text>{i18n.t('elo')}</Text>
-          </Left>
-          <Right>
-            <Text>{profile.ranking}</Text>
-          </Right>
-        </CardItem>
-        <CardItem>
-          <Left>
-            <RankIcon elo={profile.ranking}/>
-            <Text>{i18n.t('rank')}</Text>
-          </Left>
-          <Right>
-            <Text>{getRank(profile.ranking)}</Text>
-          </Right>
-        </CardItem>
-        <CardItem>
-          <Left>
-            <Icon type='MaterialCommunityIcons' name='play'/>
-            <Text>{i18n.t('matchPlayed')}</Text>
-          </Left>
-          <Right>
-            <Text>{Number(profile.nbDefeat) + Number(profile.nbEquality) + Number(profile.nbWin)}</Text>
-          </Right>
-        </CardItem>
-        <CardItem>
-          <Left>
-            <Icon type='MaterialCommunityIcons' name='format-list-numbers'/>
-            <Text>{i18n.t('ranking')}</Text>
-          </Left>
-          <Right>
-            <Text>100</Text>
-          </Right>
-        </CardItem>
-      </Card>
+      <Content padder>
+        <Card>
+          <CardItem>
+            <Left>
+              <Icon type='MaterialCommunityIcons' name='chart-line-variant'/>
+              <Text>{i18n.t('elo')}</Text>
+            </Left>
+            <Right>
+              <Text>{profile.ranking}</Text>
+            </Right>
+          </CardItem>
+          <CardItem>
+            <Left>
+              <RankIcon elo={profile.ranking}/>
+              <Text>{i18n.t('rank')}</Text>
+            </Left>
+            <Right>
+              <Text>{getRank(profile.ranking)}</Text>
+            </Right>
+          </CardItem>
+          <CardItem>
+            <Left>
+              <Icon type='MaterialCommunityIcons' name='play'/>
+              <Text>{i18n.t('matchPlayed')}</Text>
+            </Left>
+            <Right>
+              <Text>{Number(profile.nbDefeat) + Number(profile.nbEquality) + Number(profile.nbWin)}</Text>
+            </Right>
+          </CardItem>
+          <CardItem>
+            <Left>
+              <Icon type='MaterialCommunityIcons' name='format-list-numbers'/>
+              <Text>{i18n.t('ranking')}</Text>
+            </Left>
+            <Right>
+              <Text>100</Text>
+            </Right>
+          </CardItem>
+        </Card>
+      </Content>
     )
   }
 }

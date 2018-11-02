@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, View, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TouchableHighlight, TouchableOpacity, StatusBar } from 'react-native';
 // import { Input, Button } from 'react-native-elements';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { Container, Content, Item, Input, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label } from 'native-base';
+import { Container, Content, Item, Input, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label, Toast } from 'native-base';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
@@ -102,8 +102,19 @@ class CreateProfile extends React.Component {
     }
     if (!this.props.createProfile.loading) {
       this.props.dispatchCreateProfile({ idUser: this.props.auth.user.id, sport, position, size: height, weight, numero: number }).then(() => {
+        Toast.show({
+          text: i18n.t('savedSuccessfully'),
+          buttonText: 'X',
+          position: "top"
+        })
         this.props.navigation.goBack();
       });
+    } else {
+      Toast.show({
+        text: i18n.t('error'),
+        buttonText: 'X',
+        position: "top"
+      })
     }
   }
 
@@ -111,6 +122,10 @@ class CreateProfile extends React.Component {
     const { availableSports } = this.props.sports;
     return (
       <Container>
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
         <Content>
           <Form>
             <Item>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, TouchableHighlight, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Container, Header, Content, List, Button, ListItem, Text, Icon, Left, Body, Right, Switch, } from 'native-base';
@@ -23,16 +23,6 @@ class Settings extends React.Component {
       backgroundColor: colors.darkViolet1,
     },
     headerTitleStyle: {color: 'white'},
-    // headerBackTitle: ,
-    headerRight: (
-      <TouchableHighlight onPress={() => navigation.navigate('Messages')} underlayColor={'transparent'} style={{paddingRight: 15}}>
-        <FontAwesome
-                name='send-o'
-                size={24}
-                color={'white'}
-              />
-      </TouchableHighlight>
-    ),
     headerLeft: null,
   })
 
@@ -49,6 +39,10 @@ class Settings extends React.Component {
   render() {
     return (
         <Container>
+          <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+          />
           <Content>
             <ListItem icon last onPress={this.logout.bind(this)}>
               <Left>

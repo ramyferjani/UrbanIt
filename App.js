@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { store, persistor } from './app/config/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import RNLanguages from 'react-native-languages';
+import { Root } from "native-base";
 
 // import App from './app/screens/App'
 // import { RootNavigator } from './app/config/AppNavigator'
@@ -29,11 +30,13 @@ class UrbanIt extends React.Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <AppNavigator />
-        </PersistGate>
-      </Provider>
+      <Root>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <AppNavigator />
+          </PersistGate>
+        </Provider>
+      </Root>
     );
   }
 }

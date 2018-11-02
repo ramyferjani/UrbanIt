@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Content, Button, Text, Separator, Thumbnail, ListItem, Left, Icon, Body, Right } from 'native-base';
+import { withNavigation } from 'react-navigation';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
@@ -10,12 +11,12 @@ import RankIcon from '../../components/RankIcon';
 class MatchLobby extends React.Component {
   constructor(props) {
     super(props)
-    // console.log(this.props.)
   }
 
   render() {
     const { navigation } = this.props
     const teams = this.props.profile.teams.find(x => x.isOld === false).match.teams;
+    const match = this.props.profile.teams.find(x => x.isOld === false).match;
     return (
       <Content>
         {teams.map((team) => {
@@ -25,7 +26,6 @@ class MatchLobby extends React.Component {
               <Text>{team.teamName}</Text>
             </Separator>
             {team.profiles.map((profile) => {
-              console.log(team);
               return (
                 <ListItem avatar key={profile.id}>
                   <Left style={{ top: -5}}>
@@ -47,58 +47,19 @@ class MatchLobby extends React.Component {
             })}
             </Content>
           )
-})}
+        })}
         
-        {/* <ListItem>
-          <Left>
-            <Thumbnail small source={require('../../assets/images/avatar.png')}/>
-          </Left>
-          <Body>
-            <Text>Caroline Aaron</Text>
-          </Body>
-          <Right>
-            <Text>4</Text>
-          </Right>
-        </ListItem>
-        <ListItem>
-          <Left>
-            <Thumbnail small source={require('../../assets/images/avatar.png')}/>
-          </Left>
-          <Body>
-            <Text>Caroline Aaron</Text>
-            </Body>
-          <Right>
-            <Text>4</Text>
-          </Right>
-        </ListItem>
-        <Separator bordered>
-            <Text>TEAM 2</Text>
-        </Separator>
-        <ListItem>
-          <Left>
-            <Thumbnail small source={require('../../assets/images/avatar.png')}/>
-          </Left>
-          <Body>
-            <Text>Caroline Aaron</Text>
-            </Body>
-          <Right>
-            <Text>4</Text>
-          </Right>
-        </ListItem>
-        <ListItem>
-          <Left>
-            <Thumbnail small source={require('../../assets/images/avatar.png')}/>
-          </Left>
-          <Body>
-            <Text>Caroline Aaron</Text>
-            </Body>
-          <Right>
-            <Text>4</Text>
-          </Right>
-        </ListItem> */}
-        <Button block large style={{ backgroundColor: colors.darkViolet1, marginTop: 30, marginHorizontal: 15 }} underlayColor={colors.darkViolet1} onPress={() => navigation.navigate('Profile')}>
+        { match.scoreVerif && match.scoreVerif.isError ? (
+          <Text style={{marginTop: 15, alignSelf: 'center'}}>{i18n.t('scoresError')}</Text>) : (
+          teams.find(team => team.teamLeader.profile.id === this.props.profile.id && !match.scores.find(score => score.profiles[0].id === this.props.profile.id)) ? (
+          <Button block onPress={() => navigation.navigate('FillScores')} style={{ marginVertical: 30, marginHorizontal: 15, backgroundColor: colors.darkViolet1 }}>
+            <Text>{i18n.t('fillScores')}</Text>
+          </Button>) : (match.scores.length > 0 && match.scores.find(score => score.profiles[0].id === this.props.profile.id) ? (<Text style={{marginTop: 15, alignSelf: 'center'}}>{i18n.t('waitingOtherCaptain')}</Text>) : (null))
+        )}
+
+        {/* <Button block large style={{ backgroundColor: colors.darkViolet1, marginTop: 30, marginHorizontal: 15 }} underlayColor={colors.darkViolet1} onPress={() => navigation.navigate('Profile')}>
           <Text>{i18n.t('goToProfile')}</Text>
-        </Button>
+        </Button> */}
       </Content>
     )
   }
@@ -110,6 +71,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(MatchLobby);
+export default withNavigation(connect(mapStateToProps)(MatchLobby));
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Main);

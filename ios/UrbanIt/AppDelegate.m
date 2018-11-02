@@ -9,6 +9,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+@import HockeySDK;
 
 @implementation AppDelegate
 
@@ -29,6 +30,11 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"cd5bfd218a9e4fc28e06dcb5efc570fc"];
+  // Do some additional configuration if needed here
+  [[BITHockeyManager sharedHockeyManager] startManager];
+  [[BITHockeyManager sharedHockeyManager].authenticator
+   authenticateInstallation];
   return YES;
 }
 

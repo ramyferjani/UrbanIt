@@ -1,11 +1,12 @@
 import React from 'react';
 // import { connect } from 'react-redux';
 import { Content, Button, Text } from 'native-base';
+import { withNavigation } from 'react-navigation';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
 
-export default class NoneProfilesSelected extends React.Component {
+class NoneProfilesSelected extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -22,5 +23,7 @@ export default class NoneProfilesSelected extends React.Component {
     )
   }
 }
+
+export default withNavigation(NoneProfilesSelected);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Main);

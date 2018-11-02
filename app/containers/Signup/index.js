@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Image, SafeAreaView, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, Image, SafeAreaView, TouchableHighlight, KeyboardAvoidingView, StatusBar } from 'react-native';
 import { Container, Content, Item, Input, Form, InputGroup, Icon, Button, Text, Right, Spinner } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import { Input, Button } from 'react-native-elements';
@@ -49,6 +49,10 @@ class Signup extends React.Component {
 
     return (
       <LinearGradient style={{flex: 1}} start={{x: 0.3, y: 0.3}} end={{x: 1, y: 1}} colors={[colors.darkViolet1, colors.lightBlue]} locations={[0.3,0.65]}>
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
         <SafeAreaView style={{flex:1, backgroundColor: 'rgba(0,0,0,0)'}}>
           <Container style={{ backgroundColor: 'rgba(0,0,0,0)'}}>
             <Content padder>

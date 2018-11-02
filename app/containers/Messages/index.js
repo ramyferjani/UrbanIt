@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, StatusBar } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 import colors from '../../assets/colors';
@@ -32,6 +32,10 @@ export default class Messages extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
         <Text>Open up App.js to start working on your app!</Text>
         <Text>Changes you make wills automatically reload.</Text>
         <Text>Shake your phone to open the developer menu.</Text>

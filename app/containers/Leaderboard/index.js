@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, StatusBar } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 import colors from '../../assets/colors';
@@ -15,22 +15,16 @@ export default class Leaderboard extends React.Component {
     headerStyle: {
       backgroundColor: colors.darkViolet1,
     },
-    // headerBackTitle: ,
-    headerRight: (
-      <TouchableHighlight onPress={() => navigation.navigate('Messages')} underlayColor={'transparent'} style={{paddingRight: 15}}>
-        <FontAwesome
-                name='send-o'
-                size={24}
-                color={'white'}
-              />
-      </TouchableHighlight>
-    ),
     headerLeft: null,
   })
 
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
         <Text>Leaderboard!</Text>
       </View>
     );

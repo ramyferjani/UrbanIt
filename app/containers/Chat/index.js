@@ -49,6 +49,10 @@ class Chat extends React.Component {
     // const { profile, navigation } = this.props
     return (
       <Container>
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
         <View style={{flex: 1}}>
           <GiftedChat
             messages={this.state.messages}

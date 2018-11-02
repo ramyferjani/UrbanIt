@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { connect } from 'react-redux';
+import { StyleSheet, Text, View, TouchableHighlight, StatusBar } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import { ListItem } from 'react-native-elements';
@@ -34,7 +35,11 @@ const matches = [
   },
 ]
 
-export default class MatchHistory extends React.Component {
+class MatchHistory extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   static navigationOptions = ({ navigation }) => ({
     // header: null,
     title: i18n.t('match'),
@@ -50,16 +55,21 @@ export default class MatchHistory extends React.Component {
   })
 
   render() {
+    const teams = this.props.profile.teams.filter(x => x.isOld === true && x.match && x.match.scoreVerif && x.match.scoreVerif.isValid);
     return (
       <View style={styles.container}>
-      {matches.map((m, i) => (
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
+      { Object.keys(this.props.profile).length > 0 && teams.map((team, i) => (
         <ListItem
         key={i}
-        title={m.team1}
-        rightTitle={m.team2}
-        subtitle={m.score1}
-        rightSubtitle={m.score2}
-        leftIcon={m.win ? <Feather name={'check-circle'} color={'green'} size={20}/> : <Feather name={'x-circle'} color={'red'} size={20}/>}
+        title={team.match.teams[0].teamName}
+        rightTitle={team.match.teams[1].teamName}
+        subtitle={team.match.scores[0].scored}
+        rightSubtitle={team.match.scores[1].scored}
+        leftIcon={team.match.scores[0].scored > team.match.scores[1].scored && team.match.teams[0].profiles.find(x => x.id === this.props.profile.id) || team.match.scores[0].scored < team.match.scores[1].scored && team.match.teams[1].profiles.find(x => x.id === this.props.profile.id) ? <Feather name={'check-circle'} color={'green'} size={20}/> : <Feather name={'x-circle'} color={'red'} size={20}/>}
         />
       ))}
         {/* <Text>Match!</Text> */}
@@ -67,6 +77,14 @@ export default class MatchHistory extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    profile: state.profile,
+  };
+}
+
+export default connect(mapStateToProps)(MatchHistory);
 
 const styles = StyleSheet.create({
   container: {

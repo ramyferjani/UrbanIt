@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, TouchableHighlight, SafeAreaView, Dimensions } from 'react-native';
+import { StyleSheet, View, TouchableHighlight, SafeAreaView, Dimensions, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import { Avatar, Divider, Button } from 'react-native-elements';
-import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label } from 'native-base';
+import { Container, Content, Item, Input, Header, Title, Form, InputGroup, Icon, Picker, Button, Text, Right, Spinner, Left, Body, Label, Toast } from 'native-base';
 
 import colors from '../../assets/colors';
 import i18n from '../../lib/i18n';
@@ -76,8 +76,19 @@ class EditUserInfo extends React.Component {
     }
     this.props.dispatchUpdateUser(newUser, user.id).then(() => {
       if (!this.props.updateUser.error) {
+        Toast.show({
+          text: i18n.t('savedSuccessfully'),
+          buttonText: 'X',
+          position: "top"
+        })
         this.props.navigation.goBack();
         this.props.dispatchResetUpdateUserState();
+      } else {
+        Toast.show({
+          text: i18n.t('error'),
+          buttonText: 'X',
+          position: "top"
+        })
       }
     });
   }
@@ -87,6 +98,10 @@ class EditUserInfo extends React.Component {
     const { username, firstName, lastName, description } = this.state;
     return (
       <Container>
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
         <Content>
           <Form>
             <Item fixedLabel /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Image, SafeAreaView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, Image, SafeAreaView, TouchableOpacity, StatusBar, KeyboardAvoidingView } from 'react-native';
 import { Container, Content, Item, Input, Form, InputGroup, Icon, Button, Text, Right, Spinner } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import { Input, Button } from 'react-native-elements';
@@ -101,7 +101,11 @@ class Login extends React.Component {
     const { auth } = this.props;
 
     return (
-      <LinearGradient style={{flex: 1}} start={{x: 0.3, y: 0.3}} end={{x: 1, y: 1}} colors={[colors.darkViolet1, colors.lightBlue]} locations={[0.3,0.65]}>
+      <LinearGradient style={{flex: 1}} start={{x: 0.7, y: 0.6}} end={{x: 1, y: 1}} colors={[colors.darkViolet1, colors.lightBlue]} locations={[0, 1]}>
+        <StatusBar
+          backgroundColor="transparent"
+          barStyle="light-content"
+        />
         <SafeAreaView style={{flex:1, backgroundColor: 'rgba(0,0,0,0)'}}>
           <Container style={{ backgroundColor: 'rgba(0,0,0,0)'}}>
             <Content padder>
@@ -123,7 +127,7 @@ class Login extends React.Component {
                 <Button transparent light style={{marginVertical: 5}}>
                   <Text>{i18n.t('forgotPassword')}</Text>
                 </Button>
-                <Button rounded block style={{marginVertical: 5, backgroundColor: 'white'}} onPress={this.login.bind(this)}>
+                <Button large rounded block style={{marginVertical: 5, backgroundColor: 'white'}} onPress={this.login.bind(this)}>
                 {this.props.auth.loading ? (
                   <Spinner color={colors.darkViolet1}/>
                 ) : (
@@ -149,6 +153,7 @@ const mapDispatchToProps = {
   dispatchSetUnavailableSports: (sports) => setUnavailableSports(sports), 
   dispatchChangeProfile: (profile) => changeProfile(profile),
   dispatchSetProfiles: (profiles) => setProfiles(profiles),
+  dispatchRefreshProfile: (profileId) => refreshProfile(profileId),
 }
 
 const mapStateToProps = state => ({
