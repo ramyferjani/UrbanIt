@@ -57,9 +57,6 @@ class MatchLobby extends React.Component {
           </Button>) : (match.scores.length > 0 && match.scores.find(score => score.profiles[0].id === this.props.profile.id) ? (<Text style={{marginTop: 15, alignSelf: 'center'}}>{i18n.t('waitingOtherCaptain')}</Text>) : (null))
         )}
 
-        {/* <Button block large style={{ backgroundColor: colors.darkViolet1, marginTop: 30, marginHorizontal: 15 }} underlayColor={colors.darkViolet1} onPress={() => navigation.navigate('Profile')}>
-          <Text>{i18n.t('goToProfile')}</Text>
-        </Button> */}
       </Content>
     )
   }
@@ -72,5 +69,3 @@ function mapStateToProps(state) {
 }
 
 export default withNavigation(connect(mapStateToProps)(MatchLobby));
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Main);

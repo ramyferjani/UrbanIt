@@ -14,7 +14,6 @@ class PlayerIcon extends React.Component {
     switch (true) {
       case this.props.player:
         return (
-        // <View style={[styles.container, {height: , width: this.props.width}]}>
         <View >
         <Image
           style={{width: this.props.width, height: this.props.height, borderRadius: this.props.height / 2, shadowOpacity: 0.75, shadowRadius: 5, shadowColor: colors.darkGray1, shadowOffset: { height: 0, width: 0}}}
@@ -33,71 +32,6 @@ class PlayerIcon extends React.Component {
           </View>
         );
       }
-  }
-}
-
-const styles = {
-  container: {
-
-  },
-  profileContainer: {
-    width: '100%',
-    // backgroundColor: 'white',
-    padding: 15,
-  },
-  sportTitleContainer: {
-    paddingLeft: width / 15,
-    height: 30,
-  },
-  sportTitle: {
-    fontSize: 20,
-  },
-  sportTitleEnabled: {
-    color: 'white',
-  },
-  sportTitleDisabled: {
-    color: colors.darkGray1,
-  },
-  sportRankContainer: {
-    paddingLeft: width / 15,
-    // height: 30,
-  },
-  sportRank: {
-    fontSize: 15,
-  },
-  sportRankEnabled: {
-    color: 'white',
-  },
-  sportRankDisabled: {
-    color: colors.darkGray2,
-  },
-  profileButton: {
-    backgroundColor: 'white',
-    height: 80,
-    borderRadius: 5,
-    justifyContent: 'center',
-    shadowOpacity: 0.75,
-    shadowRadius: 5,
-    shadowColor: colors.darkViolet1,
-    shadowOffset: { height: 0, width: 0}
-    // flexDirection: 'row',
-    // paddingLeft: width / 15,
-  },
-  profile: {
-    flexDirection: 'row',
-    paddingLeft: width / 15,
-    flex: 1,
-    alignItems: 'center',
-  },
-  profileEnabled: {
-    // borderLeftWidth: 8,
-    // borderColor: colors.darkViolet1,
-    backgroundColor: colors.darkViolet1
-  },
-  profileDisabled: {
-    backgroundColor: 'white'
-    // borderLeftWidth: 8,
-    // borderColor: colors.darkGray2,
   }
 }
 

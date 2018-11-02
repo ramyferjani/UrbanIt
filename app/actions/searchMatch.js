@@ -57,16 +57,11 @@ export function searchMatch(profileId) {
         // this.$store.commit('loginSuccess', { token: res.data.token, user: res.data.user });
       })
       .catch((err) => {
-        // if (!err.response) {
-        //   dispatch(loginFailure( err.response.data.data ));
-        // }
         /* eslint-disable no-console */
         // console.log(err.response);
         console.log('before dispatch');
         dispatch(searchMatchFailure(err.response ? err.response.data.data : null));
         console.log('after dispatch');
-        // this.$store.commit('loginFailure');
-        // this.errors.push(err);
       });
   }
 }

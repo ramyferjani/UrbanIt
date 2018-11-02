@@ -1,15 +1,6 @@
 import axios from 'axios';
 
-// import { CHANGE_SPORT } from '../lib/constants';
-
 import * as Actions from '../constants/sports';
-
-// function setSports(sports) {
-//   return {
-//     type: CHANGE_SPORT,
-//     sports
-//   }
-// }
 
 export function setAvailableSports(sports) {
   return {
@@ -52,29 +43,3 @@ export function removeUnavailableSports(sport) {
     sport
   }
 }
-
-// export function getSports() {
-//   return (dispatch) => {
-//     return axios.get('https://urbanit.herokuapp.com/user/signIn')
-//       .then(this.status)
-//       .then((res) => {
-//         /* eslint-disable no-console */
-//         console.log(res);
-//         dispatch(setSports(res.data.data));
-//         // dispatch(loginSuccess({ user: res.data.data }));
-//         // this.$store.commit('loginSuccess', { token: res.data.token, user: res.data.user });
-//       })
-//       .catch((err) => {
-//         // if (!err.response) {
-//         //   dispatch(loginFailure( err.response.data.data ));
-//         // }
-//         /* eslint-disable no-console */
-//         // console.log(err.response);
-//         console.log('before dispatch');
-//         // dispatch(loginFailure( err.response ? err.response.data.data : null));
-//         console.log('after dispatch');
-//         // this.$store.commit('loginFailure');
-//         // this.errors.push(err);
-//       });
-//   }
-// }

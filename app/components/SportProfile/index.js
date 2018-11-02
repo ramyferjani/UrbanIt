@@ -23,11 +23,6 @@ class SportProfile extends React.Component {
           <TouchableHighlight style={[styles.profileButton, this.props.isEnable ? styles.profileEnabled : styles.profileDisabled]} onPress={this.props.onPress} underlayColor={this.props.isEnable? colors.darkViolet1 : colors.lightGray2}>
           <View style={styles.profile}>
             <View>
-              {/* <FontAwesome
-              name='soccer-ball-o'
-              size={37}
-              color={colors.darkGray1}
-              /> */}
               <SportIcon sport={this.props.sportTitle.toLowerCase()} size={37} color={this.props.isEnable ? 'white' : colors.darkGray1}></SportIcon>
             </View>
             <View>

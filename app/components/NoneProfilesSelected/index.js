@@ -25,5 +25,3 @@ class NoneProfilesSelected extends React.Component {
 }
 
 export default withNavigation(NoneProfilesSelected);
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Main);

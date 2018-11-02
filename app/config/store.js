@@ -26,18 +26,6 @@ if (typeof devToolsExtension === 'function') {
 
 const composedEnhancer = compose(applyMiddleware(thunkMiddleware, loggerMiddleware, navigationMiddleware), ...enhancerList);
 
-// const initStore = () => createStore(pReducer, composedEnhancer);
-
 export const store = createStore(pReducer, composedEnhancer);
 
 export const persistor = persistStore(store);
-
-// export default () => {
-//   let store = createStore(pReducer, composedEnhancer)
-//   let persistor = persistStore(store)
-//   return { store, persistor }
-// }
-
-// module.exports = {
-//   initStore
-// };

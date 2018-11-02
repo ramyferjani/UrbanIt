@@ -45,7 +45,7 @@ class ProfileStats extends React.Component {
               <Text>{Number(profile.nbDefeat) + Number(profile.nbEquality) + Number(profile.nbWin)}</Text>
             </Right>
           </CardItem>
-          <CardItem>
+          {/* <CardItem>
             <Left>
               <Icon type='MaterialCommunityIcons' name='format-list-numbers'/>
               <Text>{i18n.t('ranking')}</Text>
@@ -53,7 +53,7 @@ class ProfileStats extends React.Component {
             <Right>
               <Text>100</Text>
             </Right>
-          </CardItem>
+          </CardItem> */}
         </Card>
       </Content>
     )
@@ -67,6 +67,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(ProfileStats);
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Main);
-

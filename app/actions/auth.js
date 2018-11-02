@@ -77,19 +77,12 @@ export function login(email, password) {
         /* eslint-disable no-console */
         console.log(res);
         dispatch(loginSuccess({ user: res.data.data }));
-        // this.$store.commit('loginSuccess', { token: res.data.token, user: res.data.user });
       })
       .catch((err) => {
-        // if (!err.response) {
-        //   dispatch(loginFailure( err.response.data.data ));
-        // }
-        /* eslint-disable no-console */
         // console.log(err.response);
         console.log('before dispatch');
         dispatch(loginFailure( err.response ? err.response.data.data : null));
         console.log('after dispatch');
-        // this.$store.commit('loginFailure');
-        // this.errors.push(err);
       });
   }
 }
@@ -110,14 +103,11 @@ export function register(username, email, firstName, lastName, password) {
         /* eslint-disable no-console */
         console.log(res);
         dispatch(registerSuccess({ user: res.data.data }));
-        // this.$store.commit('registerSuccess', { token: res.data.token, user: res.data.user });
       })
       .catch((err) => {
         /* eslint-disable no-console */
         console.log(err);
         dispatch(registerFailure( err.response ? err.response.data.data : null));
-        // this.$store.commit('registerFailure');
-        // this.errors.push(err);
       });
   }
 }

@@ -50,45 +50,13 @@ export function updateUser(user, userId) {
         console.log(res);
         dispatch(updateUserSuccess(res.data.data));
         dispatch(updateUserInfo(res.data.data));
-        // this.$store.commit('loginSuccess', { token: res.data.token, user: res.data.user });
       })
       .catch((err) => {
-        // if (!err.response) {
-        //   dispatch(loginFailure( err.response.data.data ));
-        // }
         /* eslint-disable no-console */
         // console.log(err.response);
         console.log('before dispatch');
         dispatch(updateUserFailure(err.response ? err.response.data.data : null));
         console.log('after dispatch');
-        // this.$store.commit('loginFailure');
-        // this.errors.push(err);
       });
   }
 }
-
-// export function getSports() {
-//   return (dispatch) => {
-//     return axios.get('https://urbanit.herokuapp.com/user/signIn')
-//       .then(this.status)
-//       .then((res) => {
-//         /* eslint-disable no-console */
-//         console.log(res);
-//         dispatch(setSports(res.data.data));
-//         // dispatch(loginSuccess({ user: res.data.data }));
-//         // this.$store.commit('loginSuccess', { token: res.data.token, user: res.data.user });
-//       })
-//       .catch((err) => {
-//         // if (!err.response) {
-//         //   dispatch(loginFailure( err.response.data.data ));
-//         // }
-//         /* eslint-disable no-console */
-//         // console.log(err.response);
-//         console.log('before dispatch');
-//         // dispatch(loginFailure( err.response ? err.response.data.data : null));
-//         console.log('after dispatch');
-//         // this.$store.commit('loginFailure');
-//         // this.errors.push(err);
-//       });
-//   }
-// }

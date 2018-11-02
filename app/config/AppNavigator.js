@@ -20,7 +20,6 @@ import LeaderboardScreen from '../containers/Leaderboard';
 import ProfileScreen from '../containers/Profile';
 import MatchHistoryScreen from '../containers/MatchHistory';
 import SettingsScreen from '../containers/Settings';
-import CounterScreen from '../containers/Counter';
 import CreateProfileScreen from '../containers/CreateProfile';
 import AuthLoadingScreen from '../containers/AuthLoading';
 import EditUserInfoScreen from '../containers/EditUserInfo';
@@ -141,7 +140,7 @@ const TabNavigator = createBottomTabNavigator(
     Home: { screen: HomeNavigator, navigationOptions: { tabBarOptions: { activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', }, title: i18n.t('home') } },
     Profile: { screen: ProfileNavigator, navigationOptions: { tabBarOptions: { activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', }, title: i18n.t('profile') } },
     MatchHistory: { screen: MatchHistoryNavigator, navigationOptions: { tabBarOptions: { activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', }, title: i18n.t('results') } },
-    Leaderboard: { screen: LeaderboardNavigator, navigationOptions: { tabBarOptions: { activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', }, title: i18n.t('leaderboard') } },
+    //Leaderboard: { screen: LeaderboardNavigator, navigationOptions: { tabBarOptions: { activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', }, title: i18n.t('leaderboard') } },
     // Settings: { screen: SettingsNavigator, navigationOptions: { tabBarOptions: { label: i18n.t('settings'), activeTintColor: colors.darkViolet1, inactiveTintColor: 'gray', } } },
   },
   {

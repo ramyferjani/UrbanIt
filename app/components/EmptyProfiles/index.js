@@ -25,5 +25,3 @@ class EmptyProfiles extends React.Component {
 }
 
 export default withNavigation(EmptyProfiles);
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Main);

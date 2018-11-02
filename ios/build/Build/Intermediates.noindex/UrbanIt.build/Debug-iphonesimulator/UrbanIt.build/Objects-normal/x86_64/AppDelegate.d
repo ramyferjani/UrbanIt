@@ -9,4 +9,27 @@ dependencies: \
   /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
   /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
   /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Modules/module.modulemap \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/HockeySDKNullability.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/HockeySDKFeatureConfig.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITMetricsManager.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITStoreUpdateManager.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITHockeyBaseViewController.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITUpdateViewController.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITUpdateManager.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITCrashMetaData.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITCrashDetails.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITCrashAttachment.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITCrashManager.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITHockeyAttachment.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/HockeySDKEnums.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITHockeyLogger.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITHockeyBaseManager.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITAuthenticator.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITStoreUpdateManagerDelegate.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITUpdateManagerDelegate.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITCrashManagerDelegate.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITHockeyManagerDelegate.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/BITHockeyManager.h \
+  /Users/ramymain/Documents/ETNA/Bachelor/PLI/UrbanIt/ios/HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework/Headers/HockeySDK.h

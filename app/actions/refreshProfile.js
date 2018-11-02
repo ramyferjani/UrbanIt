@@ -34,7 +34,6 @@ export function refreshProfile(profileId) {
       .then((res) => {
         /* eslint-disable no-console */
         console.log(res);
-        // delete (res.data.data.user.password);
         let profiles = getState().profiles;
         profiles = profiles.filter(function(profile) {
           return profile.id != profileId;
@@ -43,20 +42,13 @@ export function refreshProfile(profileId) {
         dispatch(refreshProfileSuccess(res.data.data));
         dispatch(changeProfile(res.data.data));
         dispatch(setProfiles(profiles));
-        // dispatch(removeAvailableSport(res.data.data.sport.sport));
-        // this.$store.commit('loginSuccess', { token: res.data.token, user: res.data.user });
       })
       .catch((err) => {
-        // if (!err.response) {
-        //   dispatch(loginFailure( err.response.data.data ));
-        // }
         /* eslint-disable no-console */
         // console.log(err.response);
         console.log('before dispatch');
         dispatch(refreshProfileFailure(err.response ? err.response.data.data : null));
         console.log('after dispatch');
-        // this.$store.commit('loginFailure');
-        // this.errors.push(err);
       });
   }
 }
