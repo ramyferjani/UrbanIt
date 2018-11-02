@@ -63,8 +63,8 @@ class Login extends React.Component {
 
     if (profiles.length > 0) {
       this.props.dispatchChangeProfile(profiles[0]);
+      this.props.dispatchRefreshProfile(profiles[0].id);
     }
-    this.props.dispatchRefreshProfile(profiles[0].id);
   }
 
   _setSports = () => {

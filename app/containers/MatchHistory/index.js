@@ -55,14 +55,14 @@ class MatchHistory extends React.Component {
   })
 
   render() {
-    const teams = this.props.profile.teams.filter(x => x.isOld === true && x.match && x.match.scoreVerif && x.match.scoreVerif.isValid);
+    const teams = this.props.profile && this.props.profile.teams && this.props.profile.teams.length > 0 ? this.props.profile.teams.filter(x => x.isOld === true && x.match && x.match.scoreVerif && x.match.scoreVerif.isValid) : null;
     return (
       <View style={styles.container}>
         <StatusBar
           backgroundColor="transparent"
           barStyle="light-content"
         />
-      { Object.keys(this.props.profile).length > 0 && teams.map((team, i) => (
+      { Object.keys(this.props.profile).length > 0 && teams && teams.map((team, i) => (
         <ListItem
         key={i}
         title={team.match.teams[0].teamName}

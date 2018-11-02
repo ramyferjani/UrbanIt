@@ -67,13 +67,14 @@ class FillScores extends React.Component {
   }
 
   render() {
-    const teams = this.props.profile.teams.find(x => x.isOld === false).match.teams;
+    const teams = this.props.profile.teams.length > 0 && this.props.profile.teams.find(x => x.isOld === false) ? this.props.profile.teams.find(x => x.isOld === false).match.teams : null;
     return (
       <Container>
         <StatusBar
           backgroundColor="transparent"
           barStyle="light-content"
         />
+        {teams ? (
         <Content>
           <Form>
             <Item stackedLabel /*error={this.props.auth.login && this.props.auth.error && this.props.auth.error.user ? true : false}*/ style={{ /*backgroundColor: 'rgba(255,255,255,0.3)',*/ borderWidth: 0, marginVertical: 5}}>
@@ -96,6 +97,7 @@ class FillScores extends React.Component {
             )}
           </Button>
         </Content>
+        ) : null}
       </Container>
     );
   }

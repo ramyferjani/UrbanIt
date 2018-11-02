@@ -62,5 +62,6 @@
   "waitingOtherCaptain": "Waiting the opponent to fill the scores",
   "error": "An error occured",
   "savedSuccessfully": "Saved successfully",
-  "scoresError": "Scores are not the same, we will contact you"
+  "scoresError": "Scores are not the same, we will contact you",
+  "signedupSuccessfully": "Signedup successfully"
 }

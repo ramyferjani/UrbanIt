@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View, Image, SafeAreaView, TouchableHighlight, KeyboardAvoidingView, StatusBar } from 'react-native';
-import { Container, Content, Item, Input, Form, InputGroup, Icon, Button, Text, Right, Spinner } from 'native-base';
+import { Container, Content, Item, Input, Form, InputGroup, Icon, Button, Text, Right, Spinner, Toast } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import { Input, Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
@@ -40,7 +40,22 @@ class Signup extends React.Component {
   register() {
     const { email, password, username, firstName, lastName, } = this.state;
     if (!this.props.auth.loading) {
-      this.props.dispatchSignup(username, email, firstName, lastName, password);
+      this.props.dispatchSignup(username, email, firstName, lastName, password).then(() => {
+        if (!this.props.auth.error) {
+          Toast.show({
+            text: i18n.t('signedupSuccessfully'),
+            buttonText: 'X',
+            position: "top"
+          })
+          this.props.navigation.navigate('Login');
+        } else {
+          Toast.show({
+            text: i18n.t('error'),
+            buttonText: 'X',
+            position: "top"
+          })
+        }
+      });
     }
   }
 
